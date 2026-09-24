@@ -1,0 +1,320 @@
+{
+  "config": "det",
+  "nrep": 10,
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "allow_tf32_matmul": false,
+  "allow_tf32_cudnn": true,
+  "matmul_precision": "highest",
+  "deterministic_algorithms": true,
+  "cublas_workspace_config": "<unset>",
+  "patch": null,
+  "cells": {
+    "v6": {
+      "freshbatch": {
+        "n_repeats": 10,
+        "E_alpha_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.1116832386365,
+          "min": -1791.1116832386363,
+          "max": -1791.1116832386363,
+          "range": 0.0,
+          "std": 2.2737367544323206e-13
+        },
+        "E_gamma_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.1041666666667,
+          "min": -1791.1041666666667,
+          "max": -1791.1041666666667,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "dE_meV_per_atom": {
+          "n": 10,
+          "mean": 7.516571969517827,
+          "min": 7.516571969517827,
+          "max": 7.516571969517827,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_alpha_total_eV": {
+          "n": 10,
+          "mean": -78808.9140625,
+          "min": -78808.9140625,
+          "max": -78808.9140625,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_gamma_total_eV": {
+          "n": 10,
+          "mean": -236425.75,
+          "min": -236425.75,
+          "max": -236425.75,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "dE_values_meV_per_atom": [
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827
+        ],
+        "peratom_energy_vec_alpha": {
+          "max_abs_dev_meV": 0.00017881393432617188,
+          "rms_dev_meV": 6.0678688739297254e-05,
+          "spread_of_sum_meV": 0.0002980232238769531
+        },
+        "forces_alpha": {
+          "max_component_std_meV_per_A": 0.00046491622924804677,
+          "rms_component_std_meV_per_A": 0.00014352897881051536,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.00032151534856998643
+        },
+        "peratom_energy_vec_gamma": {
+          "max_abs_dev_meV": 0.00035762786865234375,
+          "rms_dev_meV": 7.332122934957264e-05,
+          "spread_of_sum_meV": 0.0011473894119262695
+        },
+        "forces_gamma": {
+          "max_component_std_meV_per_A": 0.0004470348358154297,
+          "rms_component_std_meV_per_A": 0.00011524267179428023,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.000364429326513169
+        }
+      },
+      "samebatch": {
+        "n_repeats": 10,
+        "E_alpha_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.1116832386365,
+          "min": -1791.1116832386363,
+          "max": -1791.1116832386363,
+          "range": 0.0,
+          "std": 2.2737367544323206e-13
+        },
+        "E_gamma_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.1041666666667,
+          "min": -1791.1041666666667,
+          "max": -1791.1041666666667,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "dE_meV_per_atom": {
+          "n": 10,
+          "mean": 7.516571969517827,
+          "min": 7.516571969517827,
+          "max": 7.516571969517827,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_alpha_total_eV": {
+          "n": 10,
+          "mean": -78808.9140625,
+          "min": -78808.9140625,
+          "max": -78808.9140625,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_gamma_total_eV": {
+          "n": 10,
+          "mean": -236425.75,
+          "min": -236425.75,
+          "max": -236425.75,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "dE_values_meV_per_atom": [
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827,
+          7.516571969517827
+        ],
+        "peratom_energy_vec_alpha": {
+          "max_abs_dev_meV": 0.0,
+          "rms_dev_meV": 0.0,
+          "spread_of_sum_meV": 0.0
+        },
+        "forces_alpha": {
+          "max_component_std_meV_per_A": 0.0,
+          "rms_component_std_meV_per_A": 0.0,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.0
+        },
+        "peratom_energy_vec_gamma": {
+          "max_abs_dev_meV": 0.0,
+          "rms_dev_meV": 0.0,
+          "spread_of_sum_meV": 0.0
+        },
+        "forces_gamma": {
+          "max_component_std_meV_per_A": 0.0,
+          "rms_component_std_meV_per_A": 0.0,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.0
+        }
+      }
+    },
+    "v3b": {
+      "freshbatch": {
+        "n_repeats": 10,
+        "E_alpha_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.111328125,
+          "min": -1791.111328125,
+          "max": -1791.111328125,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_gamma_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.1057054924245,
+          "min": -1791.1057054924242,
+          "max": -1791.1057054924242,
+          "range": 0.0,
+          "std": 2.2737367544323206e-13
+        },
+        "dE_meV_per_atom": {
+          "n": 10,
+          "mean": 5.622632575750686,
+          "min": 5.622632575750686,
+          "max": 5.622632575750686,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_alpha_total_eV": {
+          "n": 10,
+          "mean": -78808.8984375,
+          "min": -78808.8984375,
+          "max": -78808.8984375,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_gamma_total_eV": {
+          "n": 10,
+          "mean": -236425.953125,
+          "min": -236425.953125,
+          "max": -236425.953125,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "dE_values_meV_per_atom": [
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686
+        ],
+        "peratom_energy_vec_alpha": {
+          "max_abs_dev_meV": 0.0,
+          "rms_dev_meV": 0.0,
+          "spread_of_sum_meV": 0.0
+        },
+        "forces_alpha": {
+          "max_component_std_meV_per_A": 0.0,
+          "rms_component_std_meV_per_A": 0.0,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.0
+        },
+        "peratom_energy_vec_gamma": {
+          "max_abs_dev_meV": 0.0,
+          "rms_dev_meV": 0.0,
+          "spread_of_sum_meV": 0.0
+        },
+        "forces_gamma": {
+          "max_component_std_meV_per_A": 0.0,
+          "rms_component_std_meV_per_A": 0.0,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.0
+        }
+      },
+      "samebatch": {
+        "n_repeats": 10,
+        "E_alpha_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.111328125,
+          "min": -1791.111328125,
+          "max": -1791.111328125,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_gamma_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.1057054924245,
+          "min": -1791.1057054924242,
+          "max": -1791.1057054924242,
+          "range": 0.0,
+          "std": 2.2737367544323206e-13
+        },
+        "dE_meV_per_atom": {
+          "n": 10,
+          "mean": 5.622632575750686,
+          "min": 5.622632575750686,
+          "max": 5.622632575750686,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_alpha_total_eV": {
+          "n": 10,
+          "mean": -78808.8984375,
+          "min": -78808.8984375,
+          "max": -78808.8984375,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_gamma_total_eV": {
+          "n": 10,
+          "mean": -236425.953125,
+          "min": -236425.953125,
+          "max": -236425.953125,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "dE_values_meV_per_atom": [
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686,
+          5.622632575750686
+        ],
+        "peratom_energy_vec_alpha": {
+          "max_abs_dev_meV": 0.0,
+          "rms_dev_meV": 0.0,
+          "spread_of_sum_meV": 0.0
+        },
+        "forces_alpha": {
+          "max_component_std_meV_per_A": 0.0,
+          "rms_component_std_meV_per_A": 0.0,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.0
+        },
+        "peratom_energy_vec_gamma": {
+          "max_abs_dev_meV": 0.0,
+          "rms_dev_meV": 0.0,
+          "spread_of_sum_meV": 0.0
+        },
+        "forces_gamma": {
+          "max_component_std_meV_per_A": 0.0,
+          "rms_component_std_meV_per_A": 0.0,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.0
+        }
+      }
+    }
+  },
+  "elapsed_s": 10.545787572860718
+}

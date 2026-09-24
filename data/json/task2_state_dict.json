@@ -1,0 +1,327 @@
+{
+  "v1": {
+    "path": "/home/jss/share/AlZrW2O8_MACE/mace_train/AlZrW_v1_stagetwo.model",
+    "model_dtype": "torch.float32",
+    "n_state_dict_entries": 88,
+    "dtype_census": {
+      "torch.int64": 2,
+      "torch.float32": 76,
+      "torch.int32": 1,
+      "torch.bool": 9
+    },
+    "int_buffers": [
+      "atomic_numbers",
+      "num_interactions",
+      "products.0.symmetric_contractions.contractions.0.weights_0_zeroed",
+      "products.0.symmetric_contractions.contractions.0.weights_1_zeroed",
+      "products.0.symmetric_contractions.contractions.0.weights_max_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_0_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_1_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_max_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_0_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_1_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_max_zeroed",
+      "radial_embedding.cutoff_fn.p"
+    ],
+    "e0_keys": [
+      "atomic_energies_fn.atomic_energies"
+    ],
+    "e0_values": {
+      "atomic_energies_fn.atomic_energies": [
+        [
+          -452.1084899902344,
+          -62.752716064453125,
+          -3216.70849609375,
+          -6433.4169921875
+        ]
+      ]
+    },
+    "atomic_numbers": [
+      8,
+      13,
+      40,
+      74
+    ],
+    "n_floating_promoted": 76,
+    "values_changed_on_double": [],
+    "e0_sum": {
+      "alpha": {
+        "sum_f32vals_f64acc": -78801.6416015625,
+        "sum_f32vals_f32acc": -78801.640625,
+        "sum_f64vals_f64acc": -78801.6416015625,
+        "n_atoms": 44,
+        "per_atom_f32vals": -1790.9464000355113
+      },
+      "gamma": {
+        "sum_f32vals_f64acc": -236404.9248046875,
+        "sum_f32vals_f32acc": -236404.90625,
+        "sum_f64vals_f64acc": -236404.9248046875,
+        "n_atoms": 132,
+        "per_atom_f32vals": -1790.9464000355113
+      }
+    },
+    "dE0_per_atom_meV": 0.0,
+    "r_max": 5.0,
+    "num_interactions": 2
+  },
+  "v2": {
+    "path": "/home/jss/share/AlZrW2O8_MACE/mace_train/AlZrW_v2_stagetwo.model",
+    "model_dtype": "torch.float32",
+    "n_state_dict_entries": 88,
+    "dtype_census": {
+      "torch.int64": 2,
+      "torch.float32": 76,
+      "torch.int32": 1,
+      "torch.bool": 9
+    },
+    "int_buffers": [
+      "atomic_numbers",
+      "num_interactions",
+      "products.0.symmetric_contractions.contractions.0.weights_0_zeroed",
+      "products.0.symmetric_contractions.contractions.0.weights_1_zeroed",
+      "products.0.symmetric_contractions.contractions.0.weights_max_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_0_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_1_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_max_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_0_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_1_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_max_zeroed",
+      "radial_embedding.cutoff_fn.p"
+    ],
+    "e0_keys": [
+      "atomic_energies_fn.atomic_energies"
+    ],
+    "e0_values": {
+      "atomic_energies_fn.atomic_energies": [
+        [
+          -452.1197509765625,
+          -62.735843658447266,
+          -3216.6748046875,
+          -6433.349609375
+        ]
+      ]
+    },
+    "atomic_numbers": [
+      8,
+      13,
+      40,
+      74
+    ],
+    "n_floating_promoted": 76,
+    "values_changed_on_double": [],
+    "e0_sum": {
+      "alpha": {
+        "sum_f32vals_f64acc": -78801.328125,
+        "sum_f32vals_f32acc": -78801.328125,
+        "sum_f64vals_f64acc": -78801.328125,
+        "n_atoms": 44,
+        "per_atom_f32vals": -1790.9392755681818
+      },
+      "gamma": {
+        "sum_f32vals_f64acc": -236403.984375,
+        "sum_f32vals_f32acc": -236403.984375,
+        "sum_f64vals_f64acc": -236403.984375,
+        "n_atoms": 132,
+        "per_atom_f32vals": -1790.9392755681818
+      }
+    },
+    "dE0_per_atom_meV": 0.0,
+    "r_max": 5.0,
+    "num_interactions": 2
+  },
+  "v3b": {
+    "path": "/home/jss/share/AlZrW2O8_MACE/AlZrW_v3b_stagetwo.model",
+    "model_dtype": "torch.float32",
+    "n_state_dict_entries": 88,
+    "dtype_census": {
+      "torch.int64": 2,
+      "torch.float32": 76,
+      "torch.int32": 1,
+      "torch.bool": 9
+    },
+    "int_buffers": [
+      "atomic_numbers",
+      "num_interactions",
+      "products.0.symmetric_contractions.contractions.0.weights_0_zeroed",
+      "products.0.symmetric_contractions.contractions.0.weights_1_zeroed",
+      "products.0.symmetric_contractions.contractions.0.weights_max_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_0_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_1_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_max_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_0_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_1_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_max_zeroed",
+      "radial_embedding.cutoff_fn.p"
+    ],
+    "e0_keys": [
+      "atomic_energies_fn.atomic_energies"
+    ],
+    "e0_values": {
+      "atomic_energies_fn.atomic_energies": [
+        [
+          -452.119873046875,
+          -62.735652923583984,
+          -3216.683349609375,
+          -6433.36669921875
+        ]
+      ]
+    },
+    "atomic_numbers": [
+      8,
+      13,
+      40,
+      74
+    ],
+    "n_floating_promoted": 76,
+    "values_changed_on_double": [],
+    "e0_sum": {
+      "alpha": {
+        "sum_f32vals_f64acc": -78801.5029296875,
+        "sum_f32vals_f32acc": -78801.5,
+        "sum_f64vals_f64acc": -78801.5029296875,
+        "n_atoms": 44,
+        "per_atom_f32vals": -1790.9432484019887
+      },
+      "gamma": {
+        "sum_f32vals_f64acc": -236404.5087890625,
+        "sum_f32vals_f32acc": -236404.5,
+        "sum_f64vals_f64acc": -236404.5087890625,
+        "n_atoms": 132,
+        "per_atom_f32vals": -1790.9432484019887
+      }
+    },
+    "dE0_per_atom_meV": 0.0,
+    "r_max": 5.0,
+    "num_interactions": 2
+  },
+  "v5b": {
+    "path": "/home/jss/share/AlZrW2O8_MACE/AlZrW_v5b_stagetwo.model",
+    "model_dtype": "torch.float32",
+    "n_state_dict_entries": 88,
+    "dtype_census": {
+      "torch.int64": 2,
+      "torch.float32": 76,
+      "torch.int32": 1,
+      "torch.bool": 9
+    },
+    "int_buffers": [
+      "atomic_numbers",
+      "num_interactions",
+      "products.0.symmetric_contractions.contractions.0.weights_0_zeroed",
+      "products.0.symmetric_contractions.contractions.0.weights_1_zeroed",
+      "products.0.symmetric_contractions.contractions.0.weights_max_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_0_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_1_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_max_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_0_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_1_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_max_zeroed",
+      "radial_embedding.cutoff_fn.p"
+    ],
+    "e0_keys": [
+      "atomic_energies_fn.atomic_energies"
+    ],
+    "e0_values": {
+      "atomic_energies_fn.atomic_energies": [
+        [
+          -452.25897216796875,
+          -62.31544876098633,
+          -3216.4580078125,
+          -6432.916015625
+        ]
+      ]
+    },
+    "atomic_numbers": [
+      8,
+      13,
+      40,
+      74
+    ],
+    "n_floating_promoted": 76,
+    "values_changed_on_double": [],
+    "e0_sum": {
+      "alpha": {
+        "sum_f32vals_f64acc": -78801.447265625,
+        "sum_f32vals_f32acc": -78801.4453125,
+        "sum_f64vals_f64acc": -78801.447265625,
+        "n_atoms": 44,
+        "per_atom_f32vals": -1790.941983309659
+      },
+      "gamma": {
+        "sum_f32vals_f64acc": -236404.341796875,
+        "sum_f32vals_f32acc": -236404.34375,
+        "sum_f64vals_f64acc": -236404.341796875,
+        "n_atoms": 132,
+        "per_atom_f32vals": -1790.941983309659
+      }
+    },
+    "dE0_per_atom_meV": 0.0,
+    "r_max": 5.0,
+    "num_interactions": 2
+  },
+  "v6": {
+    "path": "/home/jss/share/AlZrW2O8_MACE/AlZrW_v6_stagetwo.model",
+    "model_dtype": "torch.float32",
+    "n_state_dict_entries": 88,
+    "dtype_census": {
+      "torch.int64": 2,
+      "torch.float32": 76,
+      "torch.int32": 1,
+      "torch.bool": 9
+    },
+    "int_buffers": [
+      "atomic_numbers",
+      "num_interactions",
+      "products.0.symmetric_contractions.contractions.0.weights_0_zeroed",
+      "products.0.symmetric_contractions.contractions.0.weights_1_zeroed",
+      "products.0.symmetric_contractions.contractions.0.weights_max_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_0_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_1_zeroed",
+      "products.0.symmetric_contractions.contractions.1.weights_max_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_0_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_1_zeroed",
+      "products.1.symmetric_contractions.contractions.0.weights_max_zeroed",
+      "radial_embedding.cutoff_fn.p"
+    ],
+    "e0_keys": [
+      "atomic_energies_fn.atomic_energies"
+    ],
+    "e0_values": {
+      "atomic_energies_fn.atomic_energies": [
+        [
+          -452.30615234375,
+          -62.291988372802734,
+          -3216.601806640625,
+          -6433.20361328125
+        ]
+      ]
+    },
+    "atomic_numbers": [
+      8,
+      13,
+      40,
+      74
+    ],
+    "n_floating_promoted": 76,
+    "values_changed_on_double": [],
+    "e0_sum": {
+      "alpha": {
+        "sum_f32vals_f64acc": -78805.8330078125,
+        "sum_f32vals_f32acc": -78805.828125,
+        "sum_f64vals_f64acc": -78805.8330078125,
+        "n_atoms": 44,
+        "per_atom_f32vals": -1791.041659268466
+      },
+      "gamma": {
+        "sum_f32vals_f64acc": -236417.4990234375,
+        "sum_f32vals_f32acc": -236417.5,
+        "sum_f64vals_f64acc": -236417.4990234375,
+        "n_atoms": 132,
+        "per_atom_f32vals": -1791.041659268466
+      }
+    },
+    "dE0_per_atom_meV": 0.0,
+    "r_max": 5.0,
+    "num_interactions": 2
+  }
+}

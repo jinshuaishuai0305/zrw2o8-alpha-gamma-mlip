@@ -1,0 +1,541 @@
+{
+  "raw": {
+    "v1": {
+      "float32": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.8828125,
+          "E_per_atom_eV": -1791.1109730113637,
+          "E0_sum_eV": -78801.6416015625,
+          "E0_per_atom_eV": -1790.9464000355113,
+          "E_net_eV": -7.2412109375,
+          "E_net_per_atom_eV": -0.16457297585227273
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.71875,
+          "E_per_atom_eV": -1791.1039299242425,
+          "E0_sum_eV": -236404.9248046875,
+          "E0_per_atom_eV": -1790.9464000355113,
+          "E_net_eV": -20.7939453125,
+          "E_net_per_atom_eV": -0.1575298887310606
+        }
+      },
+      "float64": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.86012686456,
+          "E_per_atom_eV": -1791.11045742874,
+          "E0_sum_eV": -78801.6416015625,
+          "E0_per_atom_eV": -1790.9464000355113,
+          "E_net_eV": -7.218525302057969,
+          "E_net_per_atom_eV": -0.16405739322859023
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.61804843842,
+          "E_per_atom_eV": -1791.1031670336245,
+          "E0_sum_eV": -236404.9248046875,
+          "E0_per_atom_eV": -1790.9464000355113,
+          "E_net_eV": -20.69324375092401,
+          "E_net_per_atom_eV": -0.1567669981130607
+        }
+      },
+      "float32_cpu": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.875,
+          "E_per_atom_eV": -1791.1107954545455,
+          "E0_sum_eV": -78801.6416015625,
+          "E0_per_atom_eV": -1790.9464000355113,
+          "E_net_eV": -7.2333984375,
+          "E_net_per_atom_eV": -0.1643954190340909
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.71875,
+          "E_per_atom_eV": -1791.1039299242425,
+          "E0_sum_eV": -236404.9248046875,
+          "E0_per_atom_eV": -1790.9464000355113,
+          "E_net_eV": -20.7939453125,
+          "E_net_per_atom_eV": -0.1575298887310606
+        }
+      }
+    },
+    "v2": {
+      "float32": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.8125,
+          "E_per_atom_eV": -1791.109375,
+          "E0_sum_eV": -78801.328125,
+          "E0_per_atom_eV": -1790.9392755681818,
+          "E_net_eV": -7.484375,
+          "E_net_per_atom_eV": -0.17009943181818182
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.6875,
+          "E_per_atom_eV": -1791.1036931818182,
+          "E0_sum_eV": -236403.984375,
+          "E0_per_atom_eV": -1790.9392755681818,
+          "E_net_eV": -21.703125,
+          "E_net_per_atom_eV": -0.16441761363636365
+        }
+      },
+      "float64": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.88240047502,
+          "E_per_atom_eV": -1791.1109636471595,
+          "E0_sum_eV": -78801.328125,
+          "E0_per_atom_eV": -1790.9392755681818,
+          "E_net_eV": -7.554275475020404,
+          "E_net_per_atom_eV": -0.17168807897773644
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.21017865688,
+          "E_per_atom_eV": -1791.100077111037,
+          "E0_sum_eV": -236403.984375,
+          "E0_per_atom_eV": -1790.9392755681818,
+          "E_net_eV": -21.225803656881908,
+          "E_net_per_atom_eV": -0.16080154285516596
+        }
+      },
+      "float32_cpu": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.8828125,
+          "E_per_atom_eV": -1791.1109730113637,
+          "E0_sum_eV": -78801.328125,
+          "E0_per_atom_eV": -1790.9392755681818,
+          "E_net_eV": -7.5546875,
+          "E_net_per_atom_eV": -0.17169744318181818
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.6875,
+          "E_per_atom_eV": -1791.1036931818182,
+          "E0_sum_eV": -236403.984375,
+          "E0_per_atom_eV": -1790.9392755681818,
+          "E_net_eV": -21.703125,
+          "E_net_per_atom_eV": -0.16441761363636365
+        }
+      }
+    },
+    "v3b": {
+      "float32": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.8359375,
+          "E_per_atom_eV": -1791.1099076704545,
+          "E0_sum_eV": -78801.5029296875,
+          "E0_per_atom_eV": -1790.9432484019887,
+          "E_net_eV": -7.3330078125,
+          "E_net_per_atom_eV": -0.1666592684659091
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236426.359375,
+          "E_per_atom_eV": -1791.1087831439395,
+          "E0_sum_eV": -236404.5087890625,
+          "E0_per_atom_eV": -1790.9432484019887,
+          "E_net_eV": -21.8505859375,
+          "E_net_per_atom_eV": -0.16553474195075757
+        }
+      },
+      "float64": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.90732602628,
+          "E_per_atom_eV": -1791.111530136961,
+          "E0_sum_eV": -78801.5029296875,
+          "E0_per_atom_eV": -1790.9432484019887,
+          "E_net_eV": -7.4043963387812255,
+          "E_net_per_atom_eV": -0.1682817349723006
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.9339563363,
+          "E_per_atom_eV": -1791.105560275275,
+          "E0_sum_eV": -236404.5087890625,
+          "E0_per_atom_eV": -1790.9432484019887,
+          "E_net_eV": -21.425167273788247,
+          "E_net_per_atom_eV": -0.1623118732862746
+        }
+      },
+      "float32_cpu": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.8984375,
+          "E_per_atom_eV": -1791.111328125,
+          "E0_sum_eV": -78801.5029296875,
+          "E0_per_atom_eV": -1790.9432484019887,
+          "E_net_eV": -7.3955078125,
+          "E_net_per_atom_eV": -0.16807972301136365
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236426.359375,
+          "E_per_atom_eV": -1791.1087831439395,
+          "E0_sum_eV": -236404.5087890625,
+          "E0_per_atom_eV": -1790.9432484019887,
+          "E_net_eV": -21.8505859375,
+          "E_net_per_atom_eV": -0.16553474195075757
+        }
+      }
+    },
+    "v5b": {
+      "float32": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.859375,
+          "E_per_atom_eV": -1791.110440340909,
+          "E0_sum_eV": -78801.447265625,
+          "E0_per_atom_eV": -1790.941983309659,
+          "E_net_eV": -7.412109375,
+          "E_net_per_atom_eV": -0.16845703125
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.96875,
+          "E_per_atom_eV": -1791.1058238636363,
+          "E0_sum_eV": -236404.341796875,
+          "E0_per_atom_eV": -1790.941983309659,
+          "E_net_eV": -21.626953125,
+          "E_net_per_atom_eV": -0.16384055397727273
+        }
+      },
+      "float64": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.90055800804,
+          "E_per_atom_eV": -1791.1113763183646,
+          "E0_sum_eV": -78801.447265625,
+          "E0_per_atom_eV": -1790.941983309659,
+          "E_net_eV": -7.453292383041116,
+          "E_net_per_atom_eV": -0.1693930087054799
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.68672316478,
+          "E_per_atom_eV": -1791.103687296703,
+          "E0_sum_eV": -236404.341796875,
+          "E0_per_atom_eV": -1790.941983309659,
+          "E_net_eV": -21.344926289777504,
+          "E_net_per_atom_eV": -0.16170398704376898
+        }
+      },
+      "float32_cpu": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.8984375,
+          "E_per_atom_eV": -1791.111328125,
+          "E0_sum_eV": -78801.447265625,
+          "E0_per_atom_eV": -1790.941983309659,
+          "E_net_eV": -7.451171875,
+          "E_net_per_atom_eV": -0.1693448153409091
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236426.34375,
+          "E_per_atom_eV": -1791.1086647727273,
+          "E0_sum_eV": -236404.341796875,
+          "E0_per_atom_eV": -1790.941983309659,
+          "E_net_eV": -22.001953125,
+          "E_net_per_atom_eV": -0.16668146306818182
+        }
+      }
+    },
+    "v6": {
+      "float32": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.875,
+          "E_per_atom_eV": -1791.1107954545455,
+          "E0_sum_eV": -78805.8330078125,
+          "E0_per_atom_eV": -1791.041659268466,
+          "E_net_eV": -3.0419921875,
+          "E_net_per_atom_eV": -0.06913618607954546
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.71875,
+          "E_per_atom_eV": -1791.1039299242425,
+          "E0_sum_eV": -236417.4990234375,
+          "E0_per_atom_eV": -1791.041659268466,
+          "E_net_eV": -8.2197265625,
+          "E_net_per_atom_eV": -0.06227065577651515
+        }
+      },
+      "float64": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.9211656615,
+          "E_per_atom_eV": -1791.1118446741248,
+          "E0_sum_eV": -78805.8330078125,
+          "E0_per_atom_eV": -1791.041659268466,
+          "E_net_eV": -3.0881578489934327,
+          "E_net_per_atom_eV": -0.07018540565894166
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236425.7123456921,
+          "E_per_atom_eV": -1791.1038814067583,
+          "E0_sum_eV": -236417.4990234375,
+          "E0_per_atom_eV": -1791.041659268466,
+          "E_net_eV": -8.213322254596278,
+          "E_net_per_atom_eV": -0.06222213829239605
+        }
+      },
+      "float32_cpu": {
+        "alpha": {
+          "n_atoms": 44,
+          "E_total_eV": -78808.921875,
+          "E_per_atom_eV": -1791.1118607954545,
+          "E0_sum_eV": -78805.8330078125,
+          "E0_per_atom_eV": -1791.041659268466,
+          "E_net_eV": -3.0888671875,
+          "E_net_per_atom_eV": -0.07020152698863637
+        },
+        "gamma": {
+          "n_atoms": 132,
+          "E_total_eV": -236426.328125,
+          "E_per_atom_eV": -1791.1085464015152,
+          "E0_sum_eV": -236417.4990234375,
+          "E0_per_atom_eV": -1791.041659268466,
+          "E_net_eV": -8.8291015625,
+          "E_net_per_atom_eV": -0.06688713304924243
+        }
+      }
+    }
+  },
+  "summary": {
+    "v1": {
+      "float32": {
+        "E_alpha_per_atom_eV": -1791.1109730113637,
+        "E_gamma_per_atom_eV": -1791.1039299242425,
+        "dE_meV_per_atom": 7.043087121246572,
+        "E0_alpha_per_atom_eV": -1790.9464000355113,
+        "E0_gamma_per_atom_eV": -1790.9464000355113,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 7.043087121212127,
+        "E_net_alpha_per_atom_eV": -0.16457297585227273,
+        "E_net_gamma_per_atom_eV": -0.1575298887310606
+      },
+      "float64": {
+        "E_alpha_per_atom_eV": -1791.11045742874,
+        "E_gamma_per_atom_eV": -1791.1031670336245,
+        "dE_meV_per_atom": 7.290395115433057,
+        "E0_alpha_per_atom_eV": -1790.9464000355113,
+        "E0_gamma_per_atom_eV": -1790.9464000355113,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 7.2903951155295355,
+        "E_net_alpha_per_atom_eV": -0.16405739322859023,
+        "E_net_gamma_per_atom_eV": -0.1567669981130607
+      },
+      "float32_cpu": {
+        "E_alpha_per_atom_eV": -1791.1107954545455,
+        "E_gamma_per_atom_eV": -1791.1039299242425,
+        "dE_meV_per_atom": 6.865530303002743,
+        "E0_alpha_per_atom_eV": -1790.9464000355113,
+        "E0_gamma_per_atom_eV": -1790.9464000355113,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 6.865530303030304,
+        "E_net_alpha_per_atom_eV": -0.1643954190340909,
+        "E_net_gamma_per_atom_eV": -0.1575298887310606
+      },
+      "dtype_delta": {
+        "dE_alpha_per_atom_meV": 0.5155826238478767,
+        "dE_gamma_per_atom_meV": 0.762890618034362,
+        "d_dE_meV_per_atom": 0.2473079941864853,
+        "d_E0_alpha_meV": 0.0,
+        "d_E0_gamma_meV": 0.0,
+        "d_dE_net_meV_per_atom": 0.24730799431740813,
+        "d_E_total_alpha_meV": 22.685635449306574,
+        "d_E_total_gamma_meV": 100.70156158053578
+      }
+    },
+    "v2": {
+      "float32": {
+        "E_alpha_per_atom_eV": -1791.109375,
+        "E_gamma_per_atom_eV": -1791.1036931818182,
+        "dE_meV_per_atom": 5.681818181756171,
+        "E0_alpha_per_atom_eV": -1790.9392755681818,
+        "E0_gamma_per_atom_eV": -1790.9392755681818,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 5.681818181818176,
+        "E_net_alpha_per_atom_eV": -0.17009943181818182,
+        "E_net_gamma_per_atom_eV": -0.16441761363636365
+      },
+      "float64": {
+        "E_alpha_per_atom_eV": -1791.1109636471595,
+        "E_gamma_per_atom_eV": -1791.100077111037,
+        "dE_meV_per_atom": 10.886536122370671,
+        "E0_alpha_per_atom_eV": -1790.9392755681818,
+        "E0_gamma_per_atom_eV": -1790.9392755681818,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 10.886536122570483,
+        "E_net_alpha_per_atom_eV": -0.17168807897773644,
+        "E_net_gamma_per_atom_eV": -0.16080154285516596
+      },
+      "float32_cpu": {
+        "E_alpha_per_atom_eV": -1791.1109730113637,
+        "E_gamma_per_atom_eV": -1791.1036931818182,
+        "dE_meV_per_atom": 7.279829545495886,
+        "E0_alpha_per_atom_eV": -1790.9392755681818,
+        "E0_gamma_per_atom_eV": -1790.9392755681818,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 7.279829545454531,
+        "E_net_alpha_per_atom_eV": -0.17169744318181818,
+        "E_net_gamma_per_atom_eV": -0.16441761363636365
+      },
+      "dtype_delta": {
+        "dE_alpha_per_atom_meV": -1.588647159451284,
+        "dE_gamma_per_atom_meV": 3.6160707811632165,
+        "d_dE_meV_per_atom": 5.2047179406145005,
+        "d_E0_alpha_meV": 0.0,
+        "d_E0_gamma_meV": 0.0,
+        "d_dE_net_meV_per_atom": 5.204717940752307,
+        "d_E_total_alpha_meV": -69.9004750158565,
+        "d_E_total_gamma_meV": 477.3213431135446
+      }
+    },
+    "v3b": {
+      "float32": {
+        "E_alpha_per_atom_eV": -1791.1099076704545,
+        "E_gamma_per_atom_eV": -1791.1087831439395,
+        "dE_meV_per_atom": 1.124526515013713,
+        "E0_alpha_per_atom_eV": -1790.9432484019887,
+        "E0_gamma_per_atom_eV": -1790.9432484019887,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 1.1245265151515194,
+        "E_net_alpha_per_atom_eV": -0.1666592684659091,
+        "E_net_gamma_per_atom_eV": -0.16553474195075757
+      },
+      "float64": {
+        "E_alpha_per_atom_eV": -1791.111530136961,
+        "E_gamma_per_atom_eV": -1791.105560275275,
+        "dE_meV_per_atom": 5.969861686025979,
+        "E0_alpha_per_atom_eV": -1790.9432484019887,
+        "E0_gamma_per_atom_eV": -1790.9432484019887,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 5.969861686025979,
+        "E_net_alpha_per_atom_eV": -0.1682817349723006,
+        "E_net_gamma_per_atom_eV": -0.1623118732862746
+      },
+      "float32_cpu": {
+        "E_alpha_per_atom_eV": -1791.111328125,
+        "E_gamma_per_atom_eV": -1791.1087831439395,
+        "dE_meV_per_atom": 2.544981060509599,
+        "E0_alpha_per_atom_eV": -1790.9432484019887,
+        "E0_gamma_per_atom_eV": -1790.9432484019887,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 2.5449810606060774,
+        "E_net_alpha_per_atom_eV": -0.16807972301136365,
+        "E_net_gamma_per_atom_eV": -0.16553474195075757
+      },
+      "dtype_delta": {
+        "dE_alpha_per_atom_meV": -1.6224665064328292,
+        "dE_gamma_per_atom_meV": 3.222868664579437,
+        "d_dE_meV_per_atom": 4.845335171012266,
+        "d_E0_alpha_meV": 0.0,
+        "d_E0_gamma_meV": 0.0,
+        "d_dE_net_meV_per_atom": 4.84533517087446,
+        "d_E_total_alpha_meV": -71.38852628304448,
+        "d_E_total_gamma_meV": 425.41866372448567
+      }
+    },
+    "v5b": {
+      "float32": {
+        "E_alpha_per_atom_eV": -1791.110440340909,
+        "E_gamma_per_atom_eV": -1791.1058238636363,
+        "dE_meV_per_atom": 4.616477272747943,
+        "E0_alpha_per_atom_eV": -1790.941983309659,
+        "E0_gamma_per_atom_eV": -1790.941983309659,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 4.616477272727265,
+        "E_net_alpha_per_atom_eV": -0.16845703125,
+        "E_net_gamma_per_atom_eV": -0.16384055397727273
+      },
+      "float64": {
+        "E_alpha_per_atom_eV": -1791.1113763183646,
+        "E_gamma_per_atom_eV": -1791.103687296703,
+        "dE_meV_per_atom": 7.689021661690276,
+        "E0_alpha_per_atom_eV": -1790.941983309659,
+        "E0_gamma_per_atom_eV": -1790.941983309659,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 7.689021661710926,
+        "E_net_alpha_per_atom_eV": -0.1693930087054799,
+        "E_net_gamma_per_atom_eV": -0.16170398704376898
+      },
+      "float32_cpu": {
+        "E_alpha_per_atom_eV": -1791.111328125,
+        "E_gamma_per_atom_eV": -1791.1086647727273,
+        "dE_meV_per_atom": 2.663352272747943,
+        "E0_alpha_per_atom_eV": -1790.941983309659,
+        "E0_gamma_per_atom_eV": -1790.941983309659,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 2.6633522727272654,
+        "E_net_alpha_per_atom_eV": -0.1693448153409091,
+        "E_net_gamma_per_atom_eV": -0.16668146306818182
+      },
+      "dtype_delta": {
+        "dE_alpha_per_atom_meV": -0.9359774555832701,
+        "dE_gamma_per_atom_meV": 2.136566933359063,
+        "d_dE_meV_per_atom": 3.072544388942333,
+        "d_E0_alpha_meV": 0.0,
+        "d_E0_gamma_meV": 0.0,
+        "d_dE_net_meV_per_atom": 3.072544388983661,
+        "d_E_total_alpha_meV": -41.18300804566388,
+        "d_E_total_gamma_meV": 282.02683520339633
+      }
+    },
+    "v6": {
+      "float32": {
+        "E_alpha_per_atom_eV": -1791.1107954545455,
+        "E_gamma_per_atom_eV": -1791.1039299242425,
+        "dE_meV_per_atom": 6.865530303002743,
+        "E0_alpha_per_atom_eV": -1791.041659268466,
+        "E0_gamma_per_atom_eV": -1791.041659268466,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 6.865530303030304,
+        "E_net_alpha_per_atom_eV": -0.06913618607954546,
+        "E_net_gamma_per_atom_eV": -0.06227065577651515
+      },
+      "float64": {
+        "E_alpha_per_atom_eV": -1791.1118446741248,
+        "E_gamma_per_atom_eV": -1791.1038814067583,
+        "dE_meV_per_atom": 7.963267366449145,
+        "E0_alpha_per_atom_eV": -1791.041659268466,
+        "E0_gamma_per_atom_eV": -1791.041659268466,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 7.963267366545609,
+        "E_net_alpha_per_atom_eV": -0.07018540565894166,
+        "E_net_gamma_per_atom_eV": -0.06222213829239605
+      },
+      "float32_cpu": {
+        "E_alpha_per_atom_eV": -1791.1118607954545,
+        "E_gamma_per_atom_eV": -1791.1085464015152,
+        "dE_meV_per_atom": 3.3143939392630273,
+        "E0_alpha_per_atom_eV": -1791.041659268466,
+        "E0_gamma_per_atom_eV": -1791.041659268466,
+        "dE0_meV_per_atom": 0.0,
+        "dE_net_meV_per_atom": 3.3143939393939363,
+        "E_net_alpha_per_atom_eV": -0.07020152698863637,
+        "E_net_gamma_per_atom_eV": -0.06688713304924243
+      },
+      "dtype_delta": {
+        "dE_alpha_per_atom_meV": -1.049219579272176,
+        "dE_gamma_per_atom_meV": 0.04851748417422641,
+        "d_dE_meV_per_atom": 1.0977370634464023,
+        "d_E0_alpha_meV": 0.0,
+        "d_E0_gamma_meV": 0.0,
+        "d_dE_net_meV_per_atom": 1.0977370635153054,
+        "d_E_total_alpha_meV": -46.16566148797574,
+        "d_E_total_gamma_meV": 6.404307910997886
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "Data and code for: Thermodynamic Error Amplification in Near-Degenerate Phase Transitions: Machine-Learning Potentials and the alpha/gamma Boundary of ZrW2O8"
+message: "If you use these data or this potential, please cite the corresponding article."
+type: software
+authors:
+  - family-names: Jin
+    given-names: Shuaishuai
+    orcid: "https://orcid.org/0009-0009-6960-6725"
+  - family-names: Guan
+    given-names: Zhong
+  - family-names: You
+    given-names: Zhiyong
+    orcid: "https://orcid.org/0000-0002-2300-2194"
+  - family-names: Li
+    given-names: Bing
+  - family-names: Li
+    given-names: Hang
+license: MIT

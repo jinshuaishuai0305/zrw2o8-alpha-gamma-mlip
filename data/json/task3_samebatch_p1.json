@@ -1,0 +1,168 @@
+{
+  "config": "samebatch",
+  "nrep": 10,
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "allow_tf32_matmul": false,
+  "allow_tf32_cudnn": true,
+  "matmul_precision": "highest",
+  "deterministic_algorithms": false,
+  "cublas_workspace_config": "<unset>",
+  "patch": null,
+  "cells": {
+    "v6": {
+      "freshbatch": {
+        "n_repeats": 10,
+        "E_alpha_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.1117542613636,
+          "min": -1791.1118607954545,
+          "max": -1791.1107954545455,
+          "range": 0.0010653409090082278,
+          "std": 0.00031960227270246835
+        },
+        "E_gamma_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.1085464015152,
+          "min": -1791.1085464015152,
+          "max": -1791.1085464015152,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "dE_meV_per_atom": {
+          "n": 10,
+          "mean": 3.2078598483622045,
+          "min": 2.2490530302547995,
+          "max": 3.3143939392630273,
+          "range": 1.0653409090082278,
+          "std": 0.3196022727024683
+        },
+        "E_alpha_total_eV": {
+          "n": 10,
+          "mean": -78808.9171875,
+          "min": -78808.921875,
+          "max": -78808.875,
+          "range": 0.046875,
+          "std": 0.014062500000000002
+        },
+        "E_gamma_total_eV": {
+          "n": 10,
+          "mean": -236426.328125,
+          "min": -236426.328125,
+          "max": -236426.328125,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "dE_values_meV_per_atom": [
+          2.2490530302547995,
+          3.3143939392630273,
+          3.3143939392630273,
+          3.3143939392630273,
+          3.3143939392630273,
+          3.3143939392630273,
+          3.3143939392630273,
+          3.3143939392630273,
+          3.3143939392630273,
+          3.3143939392630273
+        ],
+        "peratom_energy_vec_alpha": {
+          "max_abs_dev_meV": 0.0005364418029785156,
+          "rms_dev_meV": 0.00011103955898105156,
+          "spread_of_sum_meV": 0.0015795230865478516
+        },
+        "forces_alpha": {
+          "max_component_std_meV_per_A": 0.0007446705287170785,
+          "rms_component_std_meV_per_A": 0.000292841347891505,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.00040732351235390894
+        },
+        "peratom_energy_vec_gamma": {
+          "max_abs_dev_meV": 0.0005960464477539062,
+          "rms_dev_meV": 0.0001002213663660181,
+          "spread_of_sum_meV": 0.0017285346984863281
+        },
+        "forces_gamma": {
+          "max_component_std_meV_per_A": 0.000606687744155038,
+          "rms_component_std_meV_per_A": 0.00024901431356415157,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.00034603352611145257
+        }
+      },
+      "samebatch": {
+        "n_repeats": 10,
+        "E_alpha_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.1118607954545,
+          "min": -1791.1118607954545,
+          "max": -1791.1118607954545,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_gamma_per_atom_eV": {
+          "n": 10,
+          "mean": -1791.1070075757575,
+          "min": -1791.1070075757575,
+          "max": -1791.1070075757575,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "dE_meV_per_atom": {
+          "n": 10,
+          "mean": 4.853219696997257,
+          "min": 4.853219696997257,
+          "max": 4.853219696997257,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_alpha_total_eV": {
+          "n": 10,
+          "mean": -78808.921875,
+          "min": -78808.921875,
+          "max": -78808.921875,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "E_gamma_total_eV": {
+          "n": 10,
+          "mean": -236426.125,
+          "min": -236426.125,
+          "max": -236426.125,
+          "range": 0.0,
+          "std": 0.0
+        },
+        "dE_values_meV_per_atom": [
+          4.853219696997257,
+          4.853219696997257,
+          4.853219696997257,
+          4.853219696997257,
+          4.853219696997257,
+          4.853219696997257,
+          4.853219696997257,
+          4.853219696997257,
+          4.853219696997257,
+          4.853219696997257
+        ],
+        "peratom_energy_vec_alpha": {
+          "max_abs_dev_meV": 0.000476837158203125,
+          "rms_dev_meV": 0.00011799984318931223,
+          "spread_of_sum_meV": 0.002078711986541748
+        },
+        "forces_alpha": {
+          "max_component_std_meV_per_A": 0.0006347706652317201,
+          "rms_component_std_meV_per_A": 0.0002715101463854423,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.0003581966461224443
+        },
+        "peratom_energy_vec_gamma": {
+          "max_abs_dev_meV": 0.0005960464477539062,
+          "rms_dev_meV": 0.0001007962618364318,
+          "spread_of_sum_meV": 0.0016838312149047852
+        },
+        "forces_gamma": {
+          "max_component_std_meV_per_A": 0.0006411033032986416,
+          "rms_component_std_meV_per_A": 0.00025089556791769275,
+          "max_pairwise_rmse_vs_rep0_meV_per_A": 0.0003651216602706658
+        }
+      }
+    }
+  },
+  "elapsed_s": 5.388281583786011
+}

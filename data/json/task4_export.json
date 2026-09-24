@@ -1,0 +1,27 @@
+{
+  "export_dtype": {
+    "param_dtypes": [
+      "torch.float64"
+    ],
+    "float_buffer_dtypes": [
+      "torch.float64"
+    ],
+    "n_params": 32,
+    "n_buffers": 57
+  },
+  "E_alpha_eV_via_MACECalculator_f64": -78808.9211656615,
+  "E_gamma_eV_via_MACECalculator_f64": -236425.7123456921,
+  "E_alpha_eV": -78808.92116566151,
+  "E_gamma_eV": -236425.7123456921,
+  "dE_meV_per_atom": 7.963267366903892,
+  "dV_A3_per_atom": 0.8945984545454557,
+  "P_GPa": 1.4261777175309998,
+  "reference": {
+    "dE_DFT_meV_per_atom": 7.4295,
+    "dE_label_calibrated_meV_per_atom": 2.5385,
+    "P_DFT_GPa": 1.330582895713596,
+    "P_label_GPa": 0.45463149347452225,
+    "dE_v6_float64_meV_per_atom": 7.9633,
+    "P_v6_float64_GPa": 1.4261835619403835
+  }
+}
