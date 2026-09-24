@@ -1,0 +1,24 @@
+License for the data, the fitted potential and the figures
+===========================================================
+
+The contents of the directories `data/`, `model/` and `figures/` of this
+repository -- that is, the fitted V6 potential, its training set, the processed
+data behind the tables and figures of the paper, and the figure files -- are
+licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0).
+
+You are free to share (copy and redistribute the material in any medium or
+format) and to adapt (remix, transform, and build upon the material) for any
+purpose, even commercially, provided that you give appropriate credit, provide
+a link to the license, and indicate if changes were made.
+
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by/4.0/
+
+The source code in `code/` is licensed under the MIT License; see the file
+`LICENSE`.
+
+Note on provenance: the fitted potential is a derivative of MACE-MP-0
+(Batatia et al., arXiv:2401.00096; J. Chem. Phys. 163, 184110 (2025)) obtained
+with the MACE software. The terms of that model and of the MACE code apply to
+redistribution; please cite them alongside this repository.
