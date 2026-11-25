@@ -259,8 +259,19 @@ the corresponding author on reasonable request.
 
 ## 7. Citation
 
-If you use the potential or the data, please cite the paper above (and this repository, once its
-DOI is registered).
+If you use the potential or the data, please cite the paper above and this repository.
+
+**Version.** This is release **v1.1.0** (2026-11-25). It replaces the V6 bundle of v1.0.0 with the
+V11 potential, the 1539/258 training set and the re-derived results. Pin the content by the tag:
+
+```
+https://github.com/jinshuaishuai0305/zrw2o8-alpha-gamma-mlip/tree/v1.1
+```
+
+No separate data DOI is registered for this bundle: the Zenodo draft prepared for the raw force sets
+is not being published, and the raw force sets and relaxation archives (~1 GB) remain available from
+the corresponding author on reasonable request, as stated in the paper's Data availability section.
+The tag fixes the exact content of the data and code released here.
 
 ## 8. License
 
