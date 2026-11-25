@@ -1,0 +1,932 @@
+{
+ "meta": {
+  "purpose": "PBE ΔE(γ−α) 真弛豫静态能差；替换帧口径 +7.430 meV/atom",
+  "code": "ABACUS LTSv3.10.1 (module abacus/LTSv3.10.1-sm70-auto), basis_type lcao, dft_functional pbe",
+  "settings_inherited": "ecutwfc 100 Ry, scf_thr 1e-7 Ry, scf_nmax 200, kspacing 0.14 (KPT 3x3x3 α / 3x1x3 γ), smearing gauss sigma 0.002 Ry, symmetry 1, device gpu, ks_solver cusolver",
+  "nat": {
+   "alpha": 44,
+   "gamma": 132
+  },
+  "conversion": "P_t[GPa] = dE[meV/atom] * 0.1791",
+  "units": "energies eV (FINAL_ETOT_IS, verbatim), forces eV/Angstrom, stress kbar (=10 GPa/1000)",
+  "cluster_root": "/home/jinshuaishuai/workdir_tyut-youzhiyong/jinshuaishuai/ref_abacus",
+  "last_cluster_clock_seen": "2026-11-21T15:13+08:00",
+  "raw_evidence_local": "from_cluster/p1/ (transfer.tgz), from_cluster/p1/ALL_RESULTS.json, from_cluster/p1/relax_trace.csv",
+  "round": "round-2：γ 续弛豫（bfgs）+ ecut 扫描 + 相身份核验",
+  "jobs_round2": {
+   "2670726": "γ 续弛豫 bfgs（runs/grelax_bfgs1），CANCELLED 01:16:06 / 35 步（harvest 后主动停）",
+   "2670727": "α 静止 SCF ecutwfc 120（runs/ecut_alpha_120），COMPLETED 58 s",
+   "2671328": "5 个 γ 静止 SCF（gfin_A100/A120/B100/C100/D100），COMPLETED",
+   "2672657": "主值一对 γ 静止 SCF（gfin_F100/F120），COMPLETED"
+  }
+ },
+ "array_job_2668515": {
+  "script": "run_qrelax.sbatch (前一轮提交), --array=0-3, --time=24:00:00, 16V100, 1 GPU/任务",
+  "task_map_verified_by_completion_order": {
+   "2668515_0": "runs/alpha_relax (α relax, 离子弛豫)",
+   "2668515_1": "runs/alpha_cell-relax (α cell-relax)",
+   "2668515_2": "runs/gamma_relax (γ relax) — 观察窗口结束时仍在跑",
+   "2668515_3": "runs/gamma_cell-relax (γ cell-relax) — 观察窗口结束时仍在跑"
+  },
+  "states_at_2026-11-21T13:41:35": {
+   "2668515_0": {
+    "State": "COMPLETED",
+    "Elapsed": "00:29:28",
+    "MaxRSS": "2697564K"
+   },
+   "2668515_1": {
+    "State": "COMPLETED",
+    "Elapsed": "01:13:18"
+   },
+   "2668515_2": {
+    "State": "RUNNING",
+    "Elapsed": "01:53:23"
+   },
+   "2668515_3": {
+    "State": "RUNNING",
+    "Elapsed": "01:53:23"
+   }
+  },
+  "note": "阵列未在 10 次有界轮询内结束：γ 两个任务仍在跑（未达 force_thr_ev 0.005）。α 两个任务已 COMPLETED。sacct 完整记录须在阵列真正结束后再取一次。",
+  "final_states": {
+   "_0": "COMPLETED 00:29:28",
+   "_1": "COMPLETED 01:13:18",
+   "_2": "CANCELLED 02:47:56（86 步，cg 未进 0.01；harvest STRU_ION74_D 后主动停）",
+   "_3": "CANCELLED 03:16:01（86 步，block 84 达 max|F|=0.00939；harvest STRU_ION83_D 后主动停）"
+  }
+ },
+ "statics": {
+  "alpha_ref": {
+   "comment": "未弛豫 α 参照（前一轮留下的同设置静止算，本次保留为基线）",
+   "dir": "runs/scf_alpha_ref",
+   "nat": 44,
+   "stru_file": "runs/alpha_relax/STRU (未弛豫, a=9.2590999646 Å)",
+   "nkstot": 27,
+   "kspacing": 0.14,
+   "kpt_file": true,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -78808.8861119500652421",
+   "source_log": "runs/scf_alpha_ref/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  },
+  "alpha_relaxed": {
+   "comment": "α 全弛豫末态（核心表用）；弛豫日志 relax_converged=True",
+   "dir": "runs/scf_alpha_relaxed",
+   "nat": 44,
+   "stru_source_file": "runs/alpha_relax/OUT.ZrW2O8_refaudit/STRU_ION_D",
+   "stru_staged_md5": "748b4048bd421b8fde715a8b757a576f",
+   "lattice_A": [
+    [
+     9.259099964583466,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     9.259099964583466,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     9.259099964583466
+    ]
+   ],
+   "volume_A3": 793.7913,
+   "max_abs_dpos_vs_unrelaxed_A": 0.026516,
+   "max_norm_dpos_A": 0.02777,
+   "dpos_metric": "minimum_image",
+   "relax_log_converged": true,
+   "nkstot": 27,
+   "kspacing": 0.14,
+   "kpt_file": true,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -78808.9111331086023711",
+   "FINAL_ETOT_IS_eV": -78808.9111331086,
+   "scf_converged": true,
+   "source_log": "runs/scf_alpha_relaxed/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  },
+  "gamma_ref": {
+   "comment": "未弛豫 γ 参照（本次新建，用于固定胞降幅基线 + 复核训练标签）；逐字复制 runs/gamma_relax/STRU",
+   "dir": "runs/scf_gamma_ref",
+   "nat": 132,
+   "stru_source_file": "runs/gamma_relax/STRU",
+   "stru_staged_md5": "a40f6021872d8fe631a30ccb294900f5",
+   "lattice_A": [
+    [
+     9.170370105937769,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     27.34079934373832,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     9.026960376874625
+    ]
+   ],
+   "volume_A3": 2263.2869,
+   "nkstot": 9,
+   "kspacing": 0.14,
+   "kpt_file": true,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -236425.6776366144767962",
+   "FINAL_ETOT_IS_eV": -236425.67763661448,
+   "scf_converged": true,
+   "source_log": "runs/scf_gamma_ref/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  },
+  "gamma_relaxed": {
+   "comment": "γ 全弛豫末态（核心表用）。取最低能离子步 step 49/49；弛豫日志 relax_converged=False（见 relax.gamma_relax）",
+   "dir": "runs/scf_gamma_relaxed",
+   "nat": 132,
+   "stru_source_file": "runs/gamma_relax/OUT.ZrW2O8_refaudit/STRU_ION49_D",
+   "stru_staged_md5": "13662bc53f8ee74675a0dc4f47c85fcd",
+   "lattice_A": [
+    [
+     9.170370106142418,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     27.34079934434847,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     9.026960377076074
+    ]
+   ],
+   "volume_A3": 2263.2869,
+   "max_abs_dpos_vs_unrelaxed_A": 0.151658,
+   "max_norm_dpos_A": 0.219561,
+   "mean_norm_dpos_A": 0.090386,
+   "dpos_metric": "minimum_image",
+   "relaxed_step": 49,
+   "relaxed_step_energy_eV": -236426.373015,
+   "relaxed_step_maxF_eV_per_A": 0.04344,
+   "relax_log_converged": false,
+   "nkstot": 9,
+   "kspacing": 0.14,
+   "kpt_file": true,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -236426.3732146523543634",
+   "FINAL_ETOT_IS_eV": -236426.37321465235,
+   "scf_converged": true,
+   "source_log": "runs/scf_gamma_relaxed/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  },
+  "alpha_cellrelaxed": {
+   "comment": "α cell-relax 末态（固定胞对照/协议交叉检查）",
+   "dir": "runs/scf_alpha_cellrelaxed",
+   "nat": 44,
+   "stru_source_file": "runs/alpha_cell-relax/OUT.ZrW2O8_refaudit_cell/STRU_ION_D",
+   "stru_staged_md5": "16835490127fc201947c5d2059ae438e",
+   "lattice_A": [
+    [
+     9.259677820583734,
+     -5.89792000272851e-05,
+     0.0008367475003870982
+    ],
+    [
+     -5.821130002692985e-05,
+     9.2596053102837,
+     -0.0005563508002573804
+    ],
+    [
+     0.0008372777003873434,
+     -0.0005560320002572329,
+     9.258694189983279
+    ]
+   ],
+   "volume_A3": 793.8493,
+   "max_abs_dpos_vs_unrelaxed_A": 0.025687,
+   "relax_log_converged": true,
+   "nkstot": 27,
+   "kspacing": 0.14,
+   "kpt_file": true,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -78808.9111202459753258",
+   "FINAL_ETOT_IS_eV": -78808.91112024598,
+   "source_log": "runs/scf_alpha_cellrelaxed/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  },
+  "gamma_cellrelaxed": {
+   "comment": "γ cell-relax 末态（固定胞对照）；弛豫未达判据",
+   "dir": "runs/scf_gamma_cellrelaxed",
+   "nat": 132,
+   "stru_source_file": "runs/gamma_cell-relax/OUT.ZrW2O8_refaudit_cell/STRU_ION_D",
+   "stru_staged_md5": "10b8562f4d1799d3ea6efcef7606289d",
+   "lattice_A": [
+    [
+     9.188182480050658,
+     -0.00044368030020525644,
+     0.000149331300069084
+    ],
+    [
+     -0.001309627700605863,
+     27.393762958772967,
+     -0.00032071980014837216
+    ],
+    [
+     0.0001441964000667085,
+     -0.00010753600004974856,
+     8.984101074456246
+    ]
+   ],
+   "volume_A3": 2261.2883,
+   "max_abs_dpos_vs_unrelaxed_A": 0.141399,
+   "relax_log_converged": false,
+   "nkstot": 9,
+   "kspacing": 0.14,
+   "kpt_file": true,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -236426.3784176260523964",
+   "FINAL_ETOT_IS_eV": -236426.37841762605,
+   "source_log": "runs/scf_gamma_cellrelaxed/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  },
+  "kconv_alpha_k010": {
+   "comment": "α 全弛豫末态同结构、kspacing 0.10 的静止 SCF",
+   "dir": "runs/kconv_alpha_k010",
+   "nat": 44,
+   "stru_source_file": "runs/scf_alpha_relaxed/STRU",
+   "stru_md5_parent_and_k010": "748b4048bd421b8fde715a8b757a576f == 748b4048bd421b8fde715a8b757a576f",
+   "kspacing": 0.1,
+   "kpt_file": false,
+   "nkstot": 64,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -78808.9111364932032302",
+   "FINAL_ETOT_IS_eV": -78808.9111364932,
+   "elapsed_s": 68,
+   "source_log": "runs/kconv_alpha_k010/OUT.ZrW2O8_refaudit_scf/running_scf.log",
+   "evidence_log": "logs/zrw_scf2-2670376_5.out"
+  },
+  "kconv_gamma_k010": {
+   "comment": "γ 全弛豫末态同结构、kspacing 0.10 的静止 SCF",
+   "dir": "runs/kconv_gamma_k010",
+   "nat": 132,
+   "stru_source_file": "runs/scf_gamma_relaxed/STRU",
+   "stru_md5_parent_and_k010": "13662bc53f8ee74675a0dc4f47c85fcd == 13662bc53f8ee74675a0dc4f47c85fcd",
+   "kspacing": 0.1,
+   "kpt_file": false,
+   "nkstot": 32,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -236426.3732275116781238",
+   "FINAL_ETOT_IS_eV": -236426.37322751168,
+   "elapsed_s": 352,
+   "source_log": "runs/kconv_gamma_k010/OUT.ZrW2O8_refaudit_scf/running_scf.log",
+   "evidence_log": "logs/zrw_scf2-2670376_6.out"
+  },
+  "alpha_relaxed_ecut120": {
+   "dir": "runs/ecut_alpha_120",
+   "nat": 44,
+   "comment": "α 弛豫末态 + ecutwfc 120 Ry（其余逐字同 INPUT.scf）",
+   "stru_source_file": "runs/alpha_relax/OUT.ZrW2O8_refaudit/STRU_ION_D",
+   "stru_staged_md5": "748b4048bd421b8fde715a8b757a576f",
+   "same_structure_as": "statics.alpha_relaxed (md5 identical)",
+   "volume_A3": 793.7913,
+   "max_abs_dpos_vs_unrelaxed_A": 0.026516,
+   "dpos_metric": "minimum_image",
+   "ecutwfc": 120,
+   "charge_cutoff_Ry": 480,
+   "nkstot": 27,
+   "kspacing": 0.14,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -78808.9108627943060128 eV",
+   "FINAL_ETOT_IS_eV": -78808.9108627943,
+   "scf_converged": true,
+   "summary_maxF_component_eV_per_A": 0.0049372437,
+   "source_log": "runs/ecut_alpha_120/OUT.ZrW2O8_refaudit_ecut120/running_scf.log"
+  },
+  "gamma_final_100": {
+   "dir": "runs/gfin_F100",
+   "nat": 132,
+   "comment": "本轮主值 γ 结构：bfgs 续弛豫的最低能离子步（几何 STRU_ION30_D，该几何的力由 relax block 31 打印）",
+   "stru_source_file": "runs/grelax_bfgs1/OUT.ZrW2O8_refaudit/STRU_ION30_D",
+   "stru_staged_md5": "780bc3d261b0723870cf68d7a2b6015c",
+   "relax_geometry_step": 30,
+   "relax_block_whose_force_describes_it": 31,
+   "relax_block_maxF_component_eV_per_A": 0.040242,
+   "lattice_A": [
+    [
+     9.170370106142418,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     27.34079934434847,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     9.026960377076074
+    ]
+   ],
+   "volume_A3": 2263.2869,
+   "max_abs_dpos_vs_unrelaxed_A": 0.2046,
+   "max_norm_dpos_A": 0.2528,
+   "dpos_metric": "minimum_image",
+   "ecutwfc": 100,
+   "charge_cutoff_Ry": 400,
+   "nkstot": 9,
+   "kspacing": 0.14,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -236426.4085780733 eV",
+   "FINAL_ETOT_IS_eV": -236426.4085780733,
+   "scf_converged": true,
+   "summary_maxF_eV_per_A": 0.04340485150202691,
+   "summary_maxF_component_eV_per_A": 0.0404343784,
+   "summary_max_stress_GPa": 0.33128298144,
+   "relax_block_energy_verbatim": "-236426.40857805478 eV (= static to 1.9e-8 eV)",
+   "source_log": "runs/gfin_F100/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  },
+  "gamma_final_ecut120": {
+   "dir": "runs/gfin_F120",
+   "nat": 132,
+   "comment": "与 gamma_final_100 同一 STRU、同一 KPT，仅 ecutwfc 120",
+   "stru_source_file": "runs/grelax_bfgs1/OUT.ZrW2O8_refaudit/STRU_ION30_D",
+   "stru_staged_md5": "780bc3d261b0723870cf68d7a2b6015c",
+   "volume_A3": 2263.2869,
+   "max_abs_dpos_vs_unrelaxed_A": 0.2046,
+   "ecutwfc": 120,
+   "charge_cutoff_Ry": 480,
+   "nkstot": 9,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -236426.40881621224 eV",
+   "FINAL_ETOT_IS_eV": -236426.40881621224,
+   "scf_converged": true,
+   "summary_maxF_eV_per_A": 0.04214726891781582,
+   "summary_max_stress_GPa": 0.33127595094,
+   "source_log": "runs/gfin_F120/OUT.ZrW2O8_refaudit_ecut120/running_scf.log"
+  },
+  "gamma_bestforce_100": {
+   "dir": "runs/gfin_A100",
+   "nat": 132,
+   "comment": "全轮 max|F| 最小的固定胞 γ 结构（cg 2268515_2 的 block 75 打印 0.015346，几何 STRU_ION74_D）",
+   "stru_source_file": "runs/gamma_relax/OUT.ZrW2O8_refaudit/STRU_ION74_D",
+   "stru_staged_md5": "b1bcf7894ac6c71a4a231d3ac1b6ff6a",
+   "relax_geometry_step": 74,
+   "relax_block_whose_force_describes_it": 75,
+   "relax_block_maxF_component_eV_per_A": 0.015346,
+   "volume_A3": 2263.2869,
+   "max_abs_dpos_vs_unrelaxed_A": 0.1549,
+   "ecutwfc": 100,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -236426.3817755212076008 eV",
+   "FINAL_ETOT_IS_eV": -236426.3817755212,
+   "scf_converged": true,
+   "summary_maxF_eV_per_A": 0.020172157468233927,
+   "summary_maxF_component_eV_per_A": 0.015330161,
+   "summary_max_stress_GPa": 0.31351357195,
+   "source_log": "runs/gfin_A100/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  },
+  "gamma_bfgs_early_100": {
+   "dir": "runs/gfin_B100",
+   "nat": 132,
+   "comment": "bfgs 早期最低能几何 STRU_ION11_D（block 12）",
+   "stru_source_file": "runs/grelax_bfgs1/OUT.ZrW2O8_refaudit/STRU_ION11_D",
+   "stru_staged_md5": "8e1de4a9f9d1eca48480bc21d6355c94",
+   "relax_geometry_step": 11,
+   "relax_block_whose_force_describes_it": 12,
+   "relax_block_maxF_component_eV_per_A": 0.053909,
+   "ecutwfc": 100,
+   "volume_A3": 2263.2869,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -236426.3963761114282534 eV",
+   "FINAL_ETOT_IS_eV": -236426.39637611143,
+   "scf_converged": true,
+   "summary_maxF_eV_per_A": 0.058029940965870414,
+   "summary_maxF_component_eV_per_A": 0.0543376054,
+   "summary_max_stress_GPa": 0.33681505567,
+   "source_log": "runs/gfin_B100/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  },
+  "gamma_cellrelax_100": {
+   "dir": "runs/gfin_C100",
+   "nat": 132,
+   "comment": "胞+离子弛豫（2668515_3）block 58 最低力几何 STRU_ION57_D，晶格已弛豫",
+   "stru_source_file": "runs/gamma_cell-relax/OUT.ZrW2O8_refaudit_cell/STRU_ION57_D",
+   "stru_staged_md5": "5348e96bb0f5ae78f22ff5200270e6ff",
+   "relax_geometry_step": 57,
+   "relax_block_whose_force_describes_it": 58,
+   "relax_block_maxF_component_eV_per_A": 0.022155,
+   "lattice_A": [
+    [
+     9.188182480050658,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     27.3739962115,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     8.993427
+    ]
+   ],
+   "volume_A3": 2261.997,
+   "max_abs_dpos_vs_unrelaxed_A": 0.1535,
+   "ecutwfc": 100,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -236426.3953445717634168 eV",
+   "FINAL_ETOT_IS_eV": -236426.39534457176,
+   "scf_converged": true,
+   "summary_maxF_eV_per_A": 0.0312592634869111,
+   "summary_maxF_component_eV_per_A": 0.0221541575,
+   "summary_max_stress_GPa": 0.02527116968,
+   "source_log": "runs/gfin_C100/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  },
+  "gamma_cg_newest_100": {
+   "dir": "runs/gfin_D100",
+   "nat": 132,
+   "comment": "cg 轨迹最新几何 STRU_ION75_D（用于检验相邻离子步的能量差）",
+   "stru_source_file": "runs/gamma_relax/OUT.ZrW2O8_refaudit/STRU_ION75_D",
+   "stru_staged_md5": "d3b17c336e76577d718c9b576aa8cc92",
+   "relax_geometry_step": 75,
+   "ecutwfc": 100,
+   "volume_A3": 2263.2869,
+   "FINAL_ETOT_IS_line": "FINAL_ETOT_IS -236426.3818080796627328 eV",
+   "FINAL_ETOT_IS_eV": -236426.38180807966,
+   "scf_converged": true,
+   "summary_maxF_eV_per_A": 0.0452679819017715,
+   "summary_maxF_component_eV_per_A": 0.0409543885,
+   "summary_max_stress_GPa": 0.31493195296,
+   "source_log": "runs/gfin_D100/OUT.ZrW2O8_refaudit_scf/running_scf.log"
+  }
+ },
+ "relax_convergence": {
+  "criterion": {
+   "force_thr_ev": 0.005,
+   "brief_target_eV_per_A": 0.01,
+   "stress_thr_kbar": 0.1
+  },
+  "alpha_relax": {
+   "dir": "runs/alpha_relax",
+   "converged": true,
+   "maxF_component_eV_per_A": 0.004887,
+   "maxF_norm_eV_per_A": 0.005237,
+   "note": "用 runs/scf_alpha_relaxed（STRU md5 748b4048）直接解析 TOTAL-FORCE/TOTAL-STRESS 块；不要用 runs/alpha_relax/static（它的 STRU md5 f7a3c716 = 未弛豫，见 trap 记录）",
+   "max_stress_GPa": 0.0101,
+   "max_stress_kbar": 0.1015
+  },
+  "gamma_cg_2668515_2": {
+   "dir": "runs/gamma_relax",
+   "n_ionic_steps": 86,
+   "converged": false,
+   "best_maxF_component_eV_per_A": 0.015346,
+   "best_at_block": 75,
+   "best_geometry": "STRU_ION74_D",
+   "last_maxF_component_eV_per_A": 0.047911,
+   "last_maxF_norm_eV_per_A": 0.060889,
+   "max_stress_GPa": 0.3135,
+   "stopped_by": "scancel（cg 86 步未进 0.01；harvest 后让位给 bfgs 续弛豫）"
+  },
+  "gamma_bfgs_continuation": {
+   "dir": "runs/grelax_bfgs1",
+   "n_ionic_steps": 35,
+   "converged": false,
+   "start_file": "runs/gamma_relax/OUT.ZrW2O8_refaudit/STRU_ION52_D",
+   "start_maxF_component_eV_per_A": 0.0254,
+   "best_maxF_component_eV_per_A": 0.01782,
+   "best_at_block": 25,
+   "last_maxF_component_eV_per_A": 0.028252,
+   "max_stress_GPa": 0.3313,
+   "bfgs_instability": "block 4 (1.0886) 与 block 28 (1.6595) 出现 BFGS 历史重置式过冲，随后恢复",
+   "energy_drift_last_10_steps_meV_per_atom": 0.012,
+   "drift_basis": "末两个离子步逐字 final etot is: -236426.40870890804 -> -236426.40887125226 eV = 1.62e-4 eV = 0.00123 meV/at/step"
+  },
+  "gamma_cellrelax_2668515_3": {
+   "dir": "runs/gamma_cell-relax",
+   "n_ionic_steps": 86,
+   "converged": false,
+   "best_maxF_component_eV_per_A": 0.009391,
+   "best_at_block": 84,
+   "best_geometry": "STRU_ION83_D",
+   "max_stress_GPa_at_best": 0.0026,
+   "verdict": "胞+离子弛豫在 block 84 同时进两条判据：max|F| = 0.00939 eV/Å (<0.01)、max|stress| = 0.0026 GPa (<0.01)；作业继续跑的原因只是 deck 里 force_thr_ev=0.005 更严",
+   "stopped_by": "scancel（提交预算用尽）",
+   "max_stress_kbar_at_best": 0.0265,
+   "max_stress_note": "block 84 的 TOTAL-STRESS 最大分量 0.0265 kbar = 0.0026 GPa（远低于 0.1 kbar 判据）"
+  },
+  "fixed_cell_stress_note": "固定胞弛豫的 max|stress|=0.31 GPa 不是失败：胞被冻结在未弛豫参照上，应力必然残留；应力判据只在 cell-relax 适用（0.025 GPa）"
+ },
+ "core": {
+  "formula": "dE = E(gamma_final_100)/132 - E(alpha_relaxed)/44  [statics.gamma_final_100 / statics.alpha_relaxed]",
+  "protocol": "固定胞离子弛豫末态 -> 全精度静止 SCF，ecutwfc 100 Ry, kspacing 0.14, scf_thr 1e-7",
+  "E_per_atom_alpha_eV": -1791.111616661559,
+  "E_per_atom_gamma_eV": -1791.109155894495,
+  "dE_meV_per_atom": 2.460767,
+  "P_t_GPa": 0.440723,
+  "spread_over_relaxed_gamma_structures": {
+   "values": {
+    "gamma_final_100": 2.460767,
+    "gamma_bfgs_early_100": 2.553206,
+    "gamma_cellrelax_100": 2.561021,
+    "gamma_bestforce_100": 2.663817,
+    "gamma_cg_newest_100": 2.66357
+   },
+   "range_meV_per_atom": 0.20305
+  },
+  "cross_check_cellrelax_protocol": {
+   "formula": "E(gamma_cellrelax_100)/132 - E(alpha_cellrelaxed)/44",
+   "E_per_atom_alpha_eV": -1791.111616369227,
+   "E_per_atom_gamma_eV": -1791.109055640695,
+   "dE_meV_per_atom": 2.560729,
+   "P_t_GPa": 0.458626,
+   "spread_vs_core_meV_per_atom": 0.099961
+  },
+  "cellrelax_endpoint_maxF_below_0.01": {
+   "note": "胞+离子弛豫跑到 max|F|=0.0094（判据内）后被按提交预算停掉；该末态无独立静止 SCF，能量取同一离子步的逐字 final etot is 行（静止能一致性已验证到 1.9e-8 eV）",
+   "relax_step": 84,
+   "geometry_file": "runs/gamma_cell-relax/OUT.ZrW2O8_refaudit_cell/STRU_ION83_D",
+   "maxF_component_eV_per_A": 0.009391,
+   "maxF_norm_eV_per_A": 0.010547283816400434,
+   "final_etot_is_line": "-236426.40009741895 eV",
+   "dE_meV_per_atom": 2.524722,
+   "P_t_GPa": 0.452178,
+   "max_stress_GPa": 0.0026,
+   "criteria_met": "max|F| 0.00939 eV/Å 与 max|stress| 0.0026 GPa 同时满足任务书 0.01 / 0.1 判据"
+  }
+ },
+ "comparisons": {
+  "frame_kou_jing": {
+   "dE_meV_per_atom": 7.429538,
+   "P_t_GPa": 1.33059,
+   "source": "ref_audit/audit_results.json ['summary']['dE_frame']",
+   "shift_vs_core_meV_per_atom": -4.968771,
+   "shift_vs_core_GPa": -0.889907
+  },
+  "zero_force_extrapolation": {
+   "dE_meV_per_atom": 4.691753,
+   "P_t_GPa": 0.840293,
+   "bootstrap_16_84_meV_per_atom": [
+    2.03,
+    6.52
+   ],
+   "source": "ref_audit/audit_results.json ['summary']['dE_zero_force']",
+   "shift_vs_core_meV_per_atom": -2.230986,
+   "core_inside_bootstrap_range": true,
+   "shift_vs_core_GPa": -0.39957
+  },
+  "V9_potential_relaxed_seed3": {
+   "dE_meV_per_atom": 3.27,
+   "source": "任务书给定 (V9 seed3)",
+   "shift_vs_core_meV_per_atom": -0.809233,
+   "P_t_GPa": 0.585657,
+   "shift_vs_core_GPa": -0.144934
+  },
+  "fixed_cell_drop_vs_unrelaxed": {
+   "definition": "E(unrelaxed static) - E(relaxed static)，负号 = 弛豫降能",
+   "alpha_full_relax_meV_per_atom": -0.568663,
+   "alpha_cell_relax_meV_per_atom": -0.568370362,
+   "gamma_full_relax_meV_per_atom": -5.537435,
+   "gamma_cell_relax_meV_per_atom": -5.308947057,
+   "model_side_reference": {
+    "alpha": 0.62,
+    "gamma": 5.61,
+    "source": "任务书 (模型侧 Δ)"
+   },
+   "agreement": "α 0.569 vs 0.62 (差 0.05); γ 5.309 vs 5.61 (差 0.30) meV/atom"
+  },
+  "gate_checks": {
+   "alpha_ref_vs_training_label": {
+    "delta_eV_total": -7.9e-11,
+    "note": "前一轮: -0.011 meV"
+   },
+   "gamma_ref_vs_training_label": {
+    "E_measured_eV": -236425.67763661448,
+    "E_label_eV": -236425.6776365414,
+    "delta_meV_total": -7.3e-08,
+    "delta_meV_per_atom": -5.5e-10,
+    "conclusion": "γ 未弛豫参照与训练标签在 1e-7 eV 内一致 -> 设置与当年产标签时一致（γ 侧也成立）"
+   }
+  },
+  "fixed_cell_drop_vs_unrelaxed_round2": {
+   "alpha_full_relax_meV_per_atom": -0.568663,
+   "gamma_full_relax_meV_per_atom": -5.537435,
+   "model_side_reference": {
+    "alpha": 0.62,
+    "gamma": 5.61
+   },
+   "agreement": "α 0.569 vs 0.62；γ 5.537 vs 5.61（差 0.07 meV/at）"
+  }
+ },
+ "kpoint_sensitivity": {
+  "grid_change": "kspacing 0.14 -> 0.10: α nkstot 27 (3x3x3) -> 64 (4x4x4); γ nkstot 9 (3x1x3) -> 32 (4x2x4)",
+  "alpha_shift_meV_per_atom": -7.69e-05,
+  "gamma_shift_meV_per_atom": -9.74e-05,
+  "dE_shift_meV_per_atom": -2.05e-05,
+  "criterion": "|Δ| <= 0.3 meV/atom",
+  "verdict": "PASS（比阈值小 4 个数量级），主值仍用 kspacing 0.14"
+ },
+ "uncertainty_budget": {
+  "units": "meV/atom on dE",
+  "scf_threshold": {
+   "value": 0.001,
+   "basis": "scf_thr 1e-7 Ry = 1.36e-6 eV/cell -> α 3.1e-5, γ 1.0e-5 meV/at；经验校核：α 参照 vs 训练标签 -0.011 meV/44 = 0.00025 meV/at，γ 参照 vs 标签 5.5e-7 meV/at。取 0.001 作保守上界"
+  },
+  "kpoints": {
+   "value": 2e-05,
+   "basis": "本节 kpoint_sensitivity.dE_shift（实测）"
+  },
+  "ecut": {
+   "value": 0.007948,
+   "basis": "实测 ecutwfc 100->120（同结构 α/γ 各一对）：dE 变化 -0.00795 meV/at"
+  },
+  "relax_alpha": {
+   "value": 0.001,
+   "basis": "alpha 弛豫 max|F|=0.0049 eV/Å"
+  },
+  "relax_gamma": {
+   "value": 0.101525,
+   "basis": "五个已弛豫 γ 结构静止能极差 0.2031 meV/at，取半极差作 ±"
+  },
+  "protocol_systematic": {
+   "value": 0.099962,
+   "basis": "固定胞 vs 胞+离子（同收敛档静止 SCF）之差"
+  },
+  "total_note": "sqrt(0.0010^2 + 0.0000^2 + 0.0079^2 + 0.0010^2 + 0.1015^2 + 0.1000^2) = 0.1427 meV/at = 0.0256 GPa",
+  "direction": "γ 能量仍在缓慢下降（末 10 步 <=0.012 meV/at），2.4608 是单向上界；全部已弛豫结构给 2.4608-2.6638 区间",
+  "relax_gamma_drift_last10": {
+   "value": 0.012,
+   "basis": "bfgs 末两步逐字能量差 1.62e-4 eV -> 0.00123 meV/at/step"
+  },
+  "total_quadrature": 0.142706,
+  "total_P_t_GPa": 0.025559
+ },
+ "submissions": {
+  "budget_allowed": 3,
+  "used": [
+   {
+    "job": "2669334",
+    "array": "0,4",
+    "purpose": "α 全弛豫静止能 + γ 未弛豫参照",
+    "outcome": "task 0 FAILED (GUARD_FAILED, exit 5, 1 s; 相对路径 bug，已修)；task 4 COMPLETED 2:52"
+   },
+   {
+    "job": "2669502",
+    "array": "0",
+    "purpose": "α 全弛豫静止能（重提）",
+    "outcome": "COMPLETED 0:48"
+   },
+   {
+    "job": "2670376",
+    "array": "1,2,3,5,6",
+    "purpose": "γ 全弛豫/胞弛豫静止能 + α 胞弛豫静止能 + α/γ k=0.10",
+    "outcome": "全部 COMPLETED（1: 3:02, 2: 0:57, 3/5/6 亦完成）"
+   }
+  ],
+  "total": 3,
+  "round2": {
+   "budget_allowed": 4,
+   "used": [
+    {
+     "job": "2670726",
+     "purpose": "γ 续弛豫 bfgs（runs/grelax_bfgs1）",
+     "outcome": "CANCELLED 01:16:06 / 35 步（harvest STRU_ION30_D 后停）"
+    },
+    {
+     "job": "2670727",
+     "purpose": "α 静止 SCF ecutwfc 120（runs/ecut_alpha_120）",
+     "outcome": "COMPLETED 00:01:00"
+    },
+    {
+     "job": "2671328",
+     "purpose": "5 个 γ 静止 SCF：gfin_A100/A120/B100/C100/D100",
+     "outcome": "COMPLETED 00:17:40"
+    },
+    {
+     "job": "2672657",
+     "purpose": "主值对：gfin_F100 + gfin_F120",
+     "outcome": "COMPLETED 00:06:26"
+    }
+   ],
+   "total": 4
+  }
+ },
+ "parameter_deviations": [
+  "relax 用 force_thr_ev 0.005（fp/INPUT 为 0.02）—— 前一轮已列 REPORT 偏离项 D1，本轮未改",
+  "k 敏感度用 kspacing 0.10（任务书第 3 步明文要求）；同一次运行不放 KPT 文件，由 kspacing 生成网格",
+  "静止 SCF 全部用 INPUT.scf（母本 fp/INPUT 的 scf 设置逐字保留，仅 suffix 改动），本轮未改其任何参数",
+  "γ 全弛豫结构取该弛豫的最低能离子步 (STRU_ION49_D) 而非 STRU_ION_D 的最后一步——两者在 step 49 时相同；此项仅为稳健起见（force 振荡）",
+  "round-2 | relax_method cg -> bfgs（仅 runs/grelax_bfgs1）：cg 86 步在 0.0153-0.10 振荡且末态反弹，bfgs 35 步再降 0.203 meV/atom；INPUT.relax 其余 20 行逐字不变",
+  "round-2 | ecutwfc 100 -> 120 仅用于 runs/ecut_alpha_120 与 runs/gfin_F120（ecut 检查），suffix 改名避免 OUT 目录互覆盖",
+  "round-2 | 阵列 2668515 的 _2/_3 由我 scancel（86 步时 harvest 后停），因此它们的 final state 是 CANCELLED 而不是 COMPLETED"
+ ],
+ "core_round1": {
+  "formula": "dE = E(gamma_relaxed)/132 - E(alpha_relaxed)/44   [statics.gamma_relaxed / statics.alpha_relaxed]",
+  "E_per_atom_alpha_eV": -1791.111616661559,
+  "E_per_atom_gamma_eV": -1791.108887989791,
+  "dE_meV_per_atom": 2.728672,
+  "P_t_GPa": 0.488705,
+  "cross_check_cellrelax_protocol": {
+   "formula": "E(gamma_cellrelaxed)/132 - E(alpha_cellrelaxed)/44",
+   "E_per_atom_alpha_eV": -1791.111616366954,
+   "E_per_atom_gamma_eV": -1791.108927406258,
+   "dE_meV_per_atom": 2.688963,
+   "P_t_GPa": 0.481593,
+   "spread_vs_core_meV_per_atom": 0.039709
+  }
+ },
+ "ecut_sensitivity": {
+  "pair": "ecutwfc 100 -> 120 Ry, same STRU / same KPT / everything else verbatim",
+  "alpha": {
+   "E_100_eV": -78808.9111331086,
+   "E_120_eV": -78808.9108627943,
+   "shift_meV_per_atom": 0.006144,
+   "charge_cutoff_Ry": {
+    "100": 400,
+    "120": 480
+   }
+  },
+  "gamma": {
+   "E_100_eV": -236426.4085780733,
+   "E_120_eV": -236426.40881621224,
+   "shift_meV_per_atom": -0.001804
+  },
+  "dE_100_meV_per_atom": 2.460767,
+  "dE_120_meV_per_atom": 2.452819,
+  "dE_change_meV_per_atom": -0.007948,
+  "P_t_change_GPa": -0.001423,
+  "criterion": "|dE change| <= 0.05 meV/atom",
+  "verdict": "PASS -> 主值仍用 ecutwfc 100 Ry"
+ },
+ "phase_identity": {
+  "tool": "ase 3.29 + spglib 2.8 (local /home/jss/miniconda3/envs/abacus_env), script phase_identity.py",
+  "alpha": {
+   "unrelaxed": {
+    "spacegroup": {
+     "0.01": "P1 (No.1, 1 ops)",
+     "0.05": "P1 (No.1, 1 ops)",
+     "0.10": "P2_13 (No.198, 12 ops)"
+    },
+    "a_b_c_A": [
+     9.2591,
+     9.2591,
+     9.2591
+    ],
+    "volume_A3": 793.7913,
+    "W_O_lt_2.2A": {
+     "cutoff_A": 2.2,
+     "n_W": 8,
+     "CN_distribution": {
+      "4": 8
+     },
+     "n_bonds": 32,
+     "bond_min": 1.715,
+     "bond_mean": 1.7871,
+     "bond_max": 1.821,
+     "bond_sd": 0.0365
+    },
+    "Zr_O_lt_2.4A": {
+     "cutoff_A": 2.4,
+     "n_Zr": 4,
+     "CN_distribution": {
+      "6": 4
+     },
+     "n_bonds": 24,
+     "bond_min": 2.0666,
+     "bond_mean": 2.094,
+     "bond_max": 2.1249,
+     "bond_sd": 0.0221
+    }
+   },
+   "relaxed": {
+    "spacegroup": {
+     "0.01": "P1 (No.1, 1 ops)",
+     "0.05": "P2_13 (No.198, 12 ops)",
+     "0.10": "P2_13 (No.198, 12 ops)"
+    },
+    "a_b_c_A": [
+     9.2591,
+     9.2591,
+     9.2591
+    ],
+    "volume_A3": 793.7913,
+    "volume_change_pct": 0.0,
+    "W_O_lt_2.2A": {
+     "cutoff_A": 2.2,
+     "n_W": 8,
+     "CN_distribution": {
+      "4": 8
+     },
+     "n_bonds": 32,
+     "bond_min": 1.7169,
+     "bond_mean": 1.7869,
+     "bond_max": 1.8188,
+     "bond_sd": 0.0363
+    },
+    "Zr_O_lt_2.4A": {
+     "cutoff_A": 2.4,
+     "n_Zr": 4,
+     "CN_distribution": {
+      "6": 4
+     },
+     "n_bonds": 24,
+     "bond_min": 2.0636,
+     "bond_mean": 2.0943,
+     "bond_max": 2.125,
+     "bond_sd": 0.0304
+    }
+   },
+   "max_abs_dpos_A": 0.0278,
+   "verdict": "α 未重构：P2_13 与配位分布逐项不变"
+  },
+  "gamma": {
+   "unrelaxed": {
+    "spacegroup": {
+     "0.01": "P1 (No.1, 1 ops)",
+     "0.05": "P2_12_12_1 (No.19, 4 ops)",
+     "0.10": "P2_12_12_1 (No.19, 4 ops)"
+    },
+    "a_b_c_A": [
+     9.1704,
+     27.3408,
+     9.027
+    ],
+    "volume_A3": 2263.2869,
+    "W_O_lt_2.2A": {
+     "cutoff_A": 2.2,
+     "n_W": 24,
+     "CN_distribution": {
+      "4": 20,
+      "5": 4
+     },
+     "n_bonds": 100,
+     "bond_min": 1.7257,
+     "bond_mean": 1.8123,
+     "bond_max": 2.187,
+     "bond_sd": 0.0825
+    },
+    "Zr_O_lt_2.4A": {
+     "cutoff_A": 2.4,
+     "n_Zr": 12,
+     "CN_distribution": {
+      "6": 12
+     },
+     "n_bonds": 72,
+     "bond_min": 1.9615,
+     "bond_mean": 2.0974,
+     "bond_max": 2.1976,
+     "bond_sd": 0.0546
+    }
+   },
+   "relaxed_main": {
+    "spacegroup": {
+     "0.01": "P2_12_12_1 (No.19, 4 ops)",
+     "0.05": "P2_12_12_1 (No.19, 4 ops)",
+     "0.10": "P2_12_12_1 (No.19, 4 ops)"
+    },
+    "a_b_c_A": [
+     9.1704,
+     27.3408,
+     9.027
+    ],
+    "volume_A3": 2263.2869,
+    "volume_change_pct": 0.0,
+    "W_O_lt_2.2A": {
+     "cutoff_A": 2.2,
+     "n_W": 24,
+     "CN_distribution": {
+      "4": 20,
+      "5": 4
+     },
+     "n_bonds": 100,
+     "bond_min": 1.7437,
+     "bond_mean": 1.8115,
+     "bond_max": 2.1685,
+     "bond_sd": 0.0787
+    },
+    "Zr_O_lt_2.4A": {
+     "cutoff_A": 2.4,
+     "n_Zr": 12,
+     "CN_distribution": {
+      "6": 12
+     },
+     "n_bonds": 72,
+     "bond_min": 1.9713,
+     "bond_mean": 2.0953,
+     "bond_max": 2.1742,
+     "bond_sd": 0.0491
+    },
+    "max_norm_dpos_A": 0.2528,
+    "max_abs_dpos_A": 0.2046
+   },
+   "all_relaxed_candidates_same_phase": {
+    "A_cg74": "P2_12_12_1",
+    "B_bfgs11": "P2_12_12_1",
+    "C_cell57": "P2_12_12_1",
+    "F_bfgs30": "P2_12_12_1",
+    "pairwise_max_dpos_range_A": [
+     0.0348,
+     0.0946
+    ],
+    "vs_unrelaxed_max_dpos_A": [
+     0.2209,
+     0.2528
+    ]
+   },
+   "verdict": "γ 未重构：P2_12_12_1（0.01 Å 容差即成立）、W 配位 {4:20,5:4}、Zr 配位 {6:12} 与未弛豫胞逐项相同，平均键长变化 <=0.002 A"
+  },
+  "one_sentence": "弛豫后仍是 α（P2_13；W 四配位 / Zr 六配位）与 γ（P2_12_12_1；W {4:20,5:4} / Zr 六配位），没有发生重构",
+  "tolerance_sweep_note": "额外扫到 0.20/0.30/0.50 A：α（未弛豫与弛豫）保持 P2_13(198)，γ（未弛豫与弛豫）保持 P2_12_12_1(19)；Pa-3(205) 在 0.5 A 容差内始终没有被识别出来"
+ },
+ "trap_found": {
+  "dir": "runs/alpha_relax/static",
+  "finding": "该目录的 STRU 与未弛豫 runs/alpha_relax/STRU 同 md5 f7a3c7166f0088b838561062d57608a9，说明阵列作业内的串行静止 SCF 没拿到 STRU_ION_D 而回退到了 STRU；它的 maxF 0.28446 与能量都不是弛豫末态",
+  "consequence": "本轮与 round-1 的核心表都不用这个目录；α 的弛豫末态一律用 runs/scf_alpha_relaxed（md5 748b4048）",
+  "guard": "round-2 的每个静止目录都走 stage_static.py（stage + 作业内 verify），并把 md5/晶格/max|dpos| 写进 PROVENANCE.json"
+ }
+}

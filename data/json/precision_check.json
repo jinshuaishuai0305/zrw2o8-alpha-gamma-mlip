@@ -1,0 +1,27 @@
+{
+ "model": "/home/jss/share/ZrW2O8-beta/v11_models/ZrW_v11_seed3_stagetwo.model",
+ "geometry": {
+  "alpha": "/home/jss/share/AlZrW2O8_MACE/_alpha_ref.vasp (44 atoms)",
+  "gamma": "/home/jss/share/AlZrW2O8_MACE/_gamma_ref.vasp (132 atoms)"
+ },
+ "quantity": "dE(gamma-alpha) at the two reference geometries, meV/atom, no relaxation",
+ "repeats": 4,
+ "float32": [
+  7.2798,
+  7.2798,
+  7.2798,
+  7.2798
+ ],
+ "float64": [
+  7.8156,
+  7.8156,
+  7.8156,
+  7.8156
+ ],
+ "spread_float32_meV_at": 0.0,
+ "spread_float64_meV_at": 0.0,
+ "systematic_float32_minus_float64_meV_at": -0.5358,
+ "interpretation": "run-to-run reproducible in both precisions on this setup; the precision effect is a systematic offset, not scatter. Consistent with the binary32 ulp argument for total energies of order -2.36e5 eV with a common absolute zero.",
+ "how": "MACECalculator(model_paths=..., device='cuda', default_dtype=<dtype>); four independent calculator evaluations of the same two structures",
+ "generated_at": "2026-11-24T21:21:33"
+}

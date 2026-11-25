@@ -1,0 +1,23 @@
+{
+ "built": "2026-11-20",
+ "purpose": "ZrW2O8-only MACE potential, rebuilt from raw PBE data",
+ "gamma_shift_applied_meV_per_atom": 0.0,
+ "gamma_shift_forbidden_legacy_meV_per_atom": -4.891,
+ "zero_alignment_eV_per_atom": -1790.98299,
+ "zero_alignment_note": "uniform across all phases, calibrated from 7 identical-geometry cross-calculations, std 0.01 meV/atom; changes no phase energy difference",
+ "stress_convention": "eV/A^3, positive = tension; derived as stress = -virial/V",
+ "delta_E_gamma_alpha_meV_per_atom": 7.43,
+ "delta_E_gamma_alpha_pbe_reference": 7.43,
+ "n_train": 1539,
+ "n_valid": 258,
+ "zones": {
+  "beta": 35,
+  "alpha": 1162,
+  "gamma": 600
+ },
+ "e0s_eV_atom": {
+  "O": -2284.122929,
+  "Zr": -285.515366,
+  "W": -571.030732
+ }
+}

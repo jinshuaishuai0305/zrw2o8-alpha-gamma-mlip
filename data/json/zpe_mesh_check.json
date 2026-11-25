@@ -1,0 +1,336 @@
+{
+ "task": "ΔZPE(γ−α) 网格/口径一致性核查 + 收敛值（纯 phonopy 后处理，零新算力电子结构/力）",
+ "created": "2026-11-21T21:43:45",
+ "method": {
+  "force_sets": "cluster_qha_v11/phonons/<phase>/vol_1.0000/FORCE_SETS（未改，未重算）",
+  "rebuild": "与 phonon_pipeline.py post 同口径：eos/<phase>/<tag>/poscar.json + disps.json(smat=3x3x3, symprec=0.05, dist=0.01) 重建 Phonopy，位移逐条核对 disps.json，力从 FORCE_SETS 挂回 dataset",
+  "fc": "produce_force_constants()（对称性）",
+  "mesh_call": "run_mesh([m]*3, is_mesh_symmetry=True)",
+  "zpe": "sum(f>1e-3 THz * 4.135667696/2)/nq/nprim  [meV/atom]；虚频模不计入（V0 全实频）",
+  "volume_point": "两相各取自己的 vol_1.0000（α V=18.0407, γ V=17.1461 Å³/atom）",
+  "script": "cluster_qha_v11/qha/zpe_mesh_scan.py",
+  "raw": "cluster_qha_v11/zpe_mesh/{alpha,gamma}_vol_1.0000.json",
+  "reproduces_shipped": "alpha@24³ 68.68908834 vs ph.json 68.68908834；gamma@16³ 69.45165358 vs 69.45165358（逐位一致）"
+ },
+ "table": {
+  "alpha": {
+   "nprim": 44,
+   "natoms_supercell": 1188,
+   "ndisps": 22,
+   "fc_build_s": 0.46,
+   "V_A3_per_atom": 18.04071136363638,
+   "meshes": [
+    {
+     "qmesh": 8,
+     "nq": 24,
+     "nbands": 132,
+     "n_imag": 0,
+     "fmin_THz": 0.29229427572359357,
+     "fmax_THz": 30.280883718184064,
+     "zpe_meV_per_atom": 68.6789069207606,
+     "wall_s": 0.2
+    },
+    {
+     "qmesh": 12,
+     "nq": 76,
+     "nbands": 132,
+     "n_imag": 0,
+     "fmin_THz": 0.1943317795787189,
+     "fmax_THz": 30.280352646582763,
+     "zpe_meV_per_atom": 68.68498902911395,
+     "wall_s": 0.8
+    },
+    {
+     "qmesh": 16,
+     "nq": 176,
+     "nbands": 132,
+     "n_imag": 0,
+     "fmin_THz": 0.14438259933862396,
+     "fmax_THz": 30.279484888871657,
+     "zpe_meV_per_atom": 68.68733580781597,
+     "wall_s": 1.1
+    },
+    {
+     "qmesh": 24,
+     "nq": 584,
+     "nbands": 132,
+     "n_imag": 0,
+     "fmin_THz": 0.09370517245296028,
+     "fmax_THz": 30.280883718184064,
+     "zpe_meV_per_atom": 68.68908834464206,
+     "wall_s": 3.8
+    },
+    {
+     "qmesh": 32,
+     "nq": 1376,
+     "nbands": 132,
+     "n_imag": 0,
+     "fmin_THz": 0.06789667337098822,
+     "fmax_THz": 30.280643999519764,
+     "zpe_meV_per_atom": 68.68971745564448,
+     "wall_s": 8.9
+    }
+   ],
+   "adjacent": [
+    {
+     "from_mesh": 8,
+     "to_mesh": 12,
+     "dzpe_meV_at": 0.006082
+    },
+    {
+     "from_mesh": 12,
+     "to_mesh": 16,
+     "dzpe_meV_at": 0.002347
+    },
+    {
+     "from_mesh": 16,
+     "to_mesh": 24,
+     "dzpe_meV_at": 0.001753
+    },
+    {
+     "from_mesh": 24,
+     "to_mesh": 32,
+     "dzpe_meV_at": 0.000629
+    }
+   ]
+  },
+  "gamma": {
+   "nprim": 132,
+   "natoms_supercell": 3564,
+   "ndisps": 198,
+   "fc_build_s": 2.78,
+   "V_A3_per_atom": 17.14611287878787,
+   "meshes": [
+    {
+     "qmesh": 8,
+     "nq": 64,
+     "nbands": 396,
+     "n_imag": 0,
+     "fmin_THz": 0.24954187237473271,
+     "fmax_THz": 29.937003523096408,
+     "zpe_meV_per_atom": 69.45166056185795,
+     "wall_s": 10.6
+    },
+    {
+     "qmesh": 12,
+     "nq": 216,
+     "nbands": 396,
+     "n_imag": 0,
+     "fmin_THz": 0.16624993209366556,
+     "fmax_THz": 29.93787149137389,
+     "zpe_meV_per_atom": 69.45165458916595,
+     "wall_s": 33.1
+    },
+    {
+     "qmesh": 16,
+     "nq": 512,
+     "nbands": 396,
+     "n_imag": 0,
+     "fmin_THz": 0.12428871621572322,
+     "fmax_THz": 29.93815809826648,
+     "zpe_meV_per_atom": 69.45165357773398,
+     "wall_s": 77.3
+    },
+    {
+     "qmesh": 24,
+     "nq": 1728,
+     "nbands": 396,
+     "n_imag": 0,
+     "fmin_THz": 0.08203240543710727,
+     "fmax_THz": 29.93835644117607,
+     "zpe_meV_per_atom": 69.45165320058281,
+     "wall_s": 293.1
+    }
+   ],
+   "adjacent": [
+    {
+     "from_mesh": 8,
+     "to_mesh": 12,
+     "dzpe_meV_at": -6e-06
+    },
+    {
+     "from_mesh": 12,
+     "to_mesh": 16,
+     "dzpe_meV_at": -1e-06
+    },
+    {
+     "from_mesh": 16,
+     "to_mesh": 24,
+     "dzpe_meV_at": -0.0
+    }
+   ]
+  }
+ },
+ "convergence": {
+  "criterion": "相邻网格 |ΔZPE| <= 0.02 meV/atom（用户判定标准）",
+  "alpha": {
+   "converged_mesh": 32,
+   "converged_zpe_meV_at": 68.68971745564448,
+   "adjacent_max": 0.006082,
+   "last_step": 0.000629,
+   "meets_criterion": true,
+   "note": "α 的网格效应全部在 0.011 meV/atom 以内（8³ 已收敛到 0.02 内）"
+  },
+  "gamma": {
+   "converged_mesh": 24,
+   "converged_zpe_meV_at": 69.45165320058281,
+   "adjacent_max": 6e-06,
+   "last_step": -7e-06,
+   "meets_criterion": true,
+   "note": "γ 元胞 132 原子、BZ 小，ZPE 对 q 网格几乎不敏感：8³→24³ 只漂 7e-6 meV/atom"
+  },
+  "gamma_32": {
+   "qmesh": 32,
+   "status": "timeout>10min",
+   "wall_s": 663.1
+  },
+  "alpha_32_wall_s": 8.9,
+  "note": "γ 32³ 实测 663.1 s 触发 10 min 限额被中止（状态 timeout>10min），未用于结论；24³ 已用 293.1 s，与 16³ 差 4e-7 meV/atom，32³ 不改变结论"
+ },
+ "delta": {
+  "definition_shipped": "ΔZPE = ZPE_γ(V0_γ) − ZPE_α(V0_α)，线性内插到各自 BM V0（zpe_phdos.json 口径）",
+  "preliminary_meV_at": 0.7912650771802845,
+  "same_mesh_same_volume_meV_at": {
+   "value": 0.7619357449383273,
+   "mesh": "α 32³ / γ 24³（最细可用）",
+   "alpha": 68.68971745564448,
+   "gamma": 69.45165320058281,
+   "note": "两相各在自己的 vol_1.0000 采样点、同一收敛网格，无内插"
+  },
+  "same_mesh_24_meV_at": {
+   "value": 0.7625648559407523,
+   "alpha": 68.68908834464206,
+   "gamma": 69.45165320058281,
+   "note": "两相都用 24³（本次共同收敛网格），各在自己 vol_1.0000 采样点"
+  },
+  "at_eos_V0_meV_at": {
+   "value": 0.7906994396135332,
+   "alpha": 68.66124636489826,
+   "gamma": 69.4519458045118,
+   "note": "与 zpe_phdos.json 同口径（内插到各自 BM V0），推荐值"
+  },
+  "at_0K_G_min_volume_meV_at": {
+   "value": 0.7217100258724116,
+   "Va_A3_at": 18.092187526727276,
+   "Vg_A3_at": 17.19960875096971,
+   "slopes_meV_per_A3": {
+    "alpha": -1.5131786365675255,
+    "gamma": -1.6845679323069582
+   },
+   "note": "QHA 实际比较的是含 ZPE 的 0 K G 极小体积处的 ZPE 差"
+  },
+  "change_vs_preliminary_meV_at": -0.0005656375667513203
+ },
+ "uncertainty": {
+  "mesh": {
+   "value_meV_at": 0.0007,
+   "basis": "α 32³−24³ = +0.000629；γ 24³−16³ = −0.0000004；Δ 的网格项 ≤ 0.0007 meV/atom"
+  },
+  "volume_convention": {
+   "value_meV_at": 0.069,
+   "basis": "采样点 0.7619 / EOS-V0 内插 0.7907 / 0 K G 极小体积 0.72；口径差主要来自 α 的 V0(18.0590) 比采样点(18.0407) 大 0.0183 Å³/atom，dZPE/dV≈−1.51 meV/Å³"
+  },
+  "potential": {
+   "value_meV_at": null,
+   "basis": "V9 与 V11 的 FORCE_SETS 不同；集群上只有 V11 的 FORCE_SETS（cluster_v9 为训练目录，无 phonopy 输入），无法在 V9 势上做同网格重算 -> 势与网格贡献在数值上不可分。但网格项已独立测出 ≤0.001，故 0.4–0.6 meV 的差不可能来自网格"
+  }
+ },
+ "v9": {
+  "provenance": "/home/jss/share/ZrW2O8-beta/v9_0k/zpe_results.json",
+  "mesh": "[8,8,8] 两相相同（V9 没有网格不一致问题）",
+  "volume": "V9 自己 eos_results 的 BM V0（固定胞、只弛豫原子）",
+  "zpe": {
+   "alpha": [
+    68.4968,
+    68.3838,
+    68.3959
+   ],
+   "gamma": [
+    69.6934,
+    69.6271,
+    69.8373
+   ],
+   "dZPE": [
+    1.1966,
+    1.2433,
+    1.4415
+   ],
+   "unit": "meV/atom，seed1/2/3"
+  },
+  "v11_same_mesh_reference": {
+   "mesh": "8³",
+   "alpha": 68.6789069207606,
+   "gamma": 69.45166056185795,
+   "note": "V11 在 V9 那档网格上的值；8³→收敛只变 0.011(α)/0.00001(γ)"
+  },
+  "separable": false,
+  "reason": "无 V9 FORCE_SETS（集群 cluster_v9 是 MACE 训练目录），不能在 V9 势上做同网格后处理"
+ },
+ "verdict": {
+  "which": "+0.791 meV/atom（V11）在本次 P_t(0 K) 记账里更可信",
+  "why": [
+   "网格不一致的贡献量级是 1e-3 meV/atom，比 0.4–0.6 的差小两个数量级以上：α 8³→32³ 仅 +0.011，γ 8³→24³ 仅 −7e-6，因此\"网格不一致\"不是 0.791 vs 1.20–1.44 的原因",
+   "V9 的三个 seed 自身散 1.197/1.243/1.442（跨度 0.245 meV/atom），它从来不是一个收敛的单值；且 V9 的 ZPE 在其自己的 V0（固定胞只弛豫原子）上算，与 V11 的 EOS 体积点不同口径",
+   "0.791 与 ΔE_st=2.706、EOS/弹性全部同源于 V11 势；混用 V9 的 ZPE 会与 V11 的 EOS 不自洽",
+   "剩余不可分项：势差异（V9→V11）无法在纯后处理下隔离，必须标注为未决而非\"已解决\""
+  ],
+  "action": "论文里 ΔZPE 用 +0.79 meV/atom（V11、收敛网格），并注明势依赖为未隔离项；不要把 1.20–1.44 与 V11 的 EOS 混用"
+ },
+ "pt": {
+  "Pt0K_spline_GPa": 0.6345238602177006,
+  "dZPE_used_meV_at": 0.7906994396135332,
+  "dEst_meV_at": 2.706416518549304,
+  "estimate_by_coef": {
+   "dft_dV_0.8946": {
+    "dV_A3_per_atom": 0.8946,
+    "coef_GPa_per_meV_atom": 0.1790941896713615,
+    "src": "DFT 真弛豫体积差 dV/atom = 0.8946 Å³ -> C = 0.1791 GPa/(meV/atom)（论文旧值）",
+    "dZPE_meV_at": 0.7906994396135332,
+    "sum_meV_at": 3.497115958162837,
+    "Pt_estimate_GPa": 0.6263131487139603,
+    "diff_GPa": 0.008210711503740309,
+    "ok": true
+   },
+   "v11_fit_dV": {
+    "dV_A3_per_atom": 0.9130835384227467,
+    "coef_GPa_per_meV_atom": 0.17546878827402662,
+    "src": "V11 本次 BM 拟合 V0 差 dV/atom -> C ≈ 0.1755 GPa/(meV/atom)（主表口径）",
+    "dZPE_meV_at": 0.7906994396135332,
+    "sum_meV_at": 3.497115958162837,
+    "Pt_estimate_GPa": 0.6136346996325946,
+    "diff_GPa": 0.020889160585105926,
+    "ok": true
+   }
+  },
+  "preliminary": {
+   "dZPE_meV_at": 0.7912650771802845,
+   "estimate_by_coef": {
+    "dft_dV_0.8946": {
+     "dV_A3_per_atom": 0.8946,
+     "coef_GPa_per_meV_atom": 0.1790941896713615,
+     "src": "DFT 真弛豫体积差 dV/atom = 0.8946 Å³ -> C = 0.1791 GPa/(meV/atom)（论文旧值）",
+     "dZPE_meV_at": 0.7912650771802845,
+     "sum_meV_at": 3.4976815957295884,
+     "Pt_estimate_GPa": 0.6264144511156253,
+     "diff_GPa": 0.008109409102075249,
+     "ok": true
+    },
+    "v11_fit_dV": {
+     "dV_A3_per_atom": 0.9130835384227467,
+     "coef_GPa_per_meV_atom": 0.17546878827402662,
+     "src": "V11 本次 BM 拟合 V0 差 dV/atom -> C ≈ 0.1755 GPa/(meV/atom)（主表口径）",
+     "dZPE_meV_at": 0.7912650771802845,
+     "sum_meV_at": 3.4976815957295884,
+     "Pt_estimate_GPa": 0.6137339513710347,
+     "diff_GPa": 0.020789908846665872,
+     "ok": true
+    }
+   }
+  },
+  "delta_Pt_vs_preliminary_GPa": {
+   "dft_dV_0.8946": -0.00010130240166500836,
+   "v11_fit_dV": -9.925173844012302e-05
+  },
+  "note": "0.791 -> 0.7907 只让 (ΔE_st+ΔZPE)×C 降 1e-4 GPa；spline 的 Pt0K 未重算（ΔZPE 变 5.7e-4，影响 <1e-4 GPa）"
+ }
+}

@@ -1,107 +1,120 @@
 #!/usr/bin/env python3
-"""Fig. 5 (manuscript) - Clausius-Clapeyron amplification and the tripartite error ledger."""
+"""Fig. 5 - isotherms of the Gibbs free-energy difference and the 300 K error ledger, V11 data.
+
+Data sources (all read-only):
+  deposit/data/json/pt_line.json
+        rows[*].{T,Pt_GPa,Va_A3_at,Vg_A3_at,dG_P0_eV_at}
+  deposit/data/json/eos.json      delta.dEst_meV_per_atom, :delta.coef_GPa_per_meV_atom
+  deposit/data/json/zpe_phdos.json delta.dZPE_meV_at
+  PBE relaxed reference 2.5247 meV/atom               (abacus_results.json : core.cellrelax_endpoint_maxF_below_0.01)
+  experimental onset 0.210 GPa                        (experimental input, not computed here)
+
+Panel (b) is drawn in meV/atom on purpose: at 300 K a given energy is NOT converted into a
+pressure by the 0 K coefficient C, because dV has changed with temperature
+(7.2207 meV/atom <-> 1.5204 GPa, ratio 0.2105, not 0.1755). The pressure 1.5204 GPa comes
+from the Gibbs minimisation in pt_line.json, not from dE * C.
+"""
 import json, os
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-ROOT = '/home/jss/share/AlZrW2O8_MACE/diag_precision/json/'
-OUT = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.dirname(os.path.abspath(__file__))
+QHA = os.path.join(HERE, '..', 'data', 'json') + os.sep
+OUT = os.path.join(HERE, '..', 'figures')
+GPA_A3_PER_EV = 160.2177
+
 plt.rcParams.update({
     'font.family': 'serif', 'font.serif': ['Times New Roman', 'Nimbus Roman', 'DejaVu Serif'],
     'mathtext.fontset': 'stix', 'font.size': 8, 'axes.labelsize': 8,
-    'xtick.labelsize': 7.5, 'ytick.labelsize': 7.5, 'legend.fontsize': 7.0,
+    'xtick.labelsize': 7.5, 'ytick.labelsize': 7.5, 'legend.fontsize': 6.6,
     'axes.linewidth': 0.7, 'xtick.major.width': 0.7, 'ytick.major.width': 0.7,
     'xtick.major.size': 3, 'ytick.major.size': 3, 'lines.linewidth': 1.1,
     'axes.spines.top': False, 'axes.spines.right': False,
 })
-C_EXP = '#000000'; C_MLIP = '#0072B2'; C_PBE = '#D55E00'; C_ZPE = '#009E73'; C_LBL = '#E69F00'
-C_RES = '#56B4E9'
-k = 0.1791                      # GPa per (meV/atom), dP_t/d(Delta E)
-rows = {r['T']: r for r in json.load(open(ROOT + 'pt_line_v6_raw.json'))['rows']}
-Tsel = [0, 100, 200, 300, 400]
 
+pt = json.load(open(QHA + 'pt_line.json'))
+eos = json.load(open(QHA + 'eos.json'))
+zpe = json.load(open(QHA + 'zpe_phdos.json'))
+
+C = eos['delta']['coef_GPa_per_meV_atom']          # 0.175469 GPa/(meV/atom), 0 K ruler
+dEst = eos['delta']['dEst_meV_per_atom']           # 2.70642
+dZPE = zpe['delta']['dZPE_meV_at']                 # 0.79070
+PBE_REF = 2.5247                                   # abacus_results.json : core.cellrelax_endpoint_maxF_below_0.01
+EXP_P = 0.210                                      # experimental input
+EXP_E = EXP_P / C                                  # 1.19680 meV/atom
+
+rows = {int(r['T']): r for r in pt['rows']}
+dG_0K = rows[0]['dG_P0_eV_at'] * 1e3               # 3.60339
+dG_300K = rows[300]['dG_P0_eV_at'] * 1e3           # 7.22073
+closure = dG_0K - (dEst + dZPE)                    # 0.10627
+dS_term = dG_300K - dG_0K                          # 3.61735
+
+# ---------------------------------------------------------------- figure
 fig = plt.figure(figsize=(7.2, 2.75))
-gs = fig.add_gridspec(1, 2, width_ratios=[1.0, 1.02], wspace=0.30,
-                      left=0.072, right=0.985, top=0.90, bottom=0.29)
+gs = fig.add_gridspec(1, 2, wspace=0.30, left=0.075, right=0.985, top=0.92, bottom=0.22,
+                      width_ratios=[1.15, 1.0])
 
-# ------------------------------------------------------------------ (a)
+# ------------------------------------------------ (a) Clausius-Clapeyron isotherms
 ax = fig.add_subplot(gs[0, 0])
-P = np.linspace(0.0, 2.6, 300)
-cmap = plt.get_cmap('viridis')
-for i, T in enumerate(Tsel):
-    r = rows[T]
-    s = (r['Va'] - r['Vg']) / 160.2177 * 1000.0        # meV/atom per GPa
-    col = cmap(0.06 + 0.80 * i / (len(Tsel) - 1))
-    ax.plot(P, s * (r['Pt'] - P), '-', color=col, lw=1.2, label=r'$%d$ K' % T)
-    ax.plot(r['Pt'], 0.0, 'o', ms=3.3, mfc='white', mec=col, mew=0.9, zorder=5)
+Pax = np.linspace(0, 2.6, 400)
+colors = plt.cm.viridis(np.linspace(0.1, 0.82, 5))
+for c, Tk in zip(colors, [0, 100, 200, 300, 400]):
+    r = rows[Tk]
+    dV = r['Va_A3_at'] - r['Vg_A3_at']
+    dGP = (r['Pt_GPa'] - Pax) * dV / GPA_A3_PER_EV * 1000.0     # meV/atom
+    ax.plot(Pax, dGP, color=c, lw=1.2, label='%d K' % Tk)
+    ax.plot(r['Pt_GPa'], 0.0, 'o', ms=3.4, mfc='w', mec=c, mew=0.9)
+ax.axhline(0, color='k', lw=0.7)
+ax.axvline(EXP_P, color='k', lw=0.9, ls=':')
+ax.plot(EXP_P, np.interp(EXP_P, Pax, (rows[300]['Pt_GPa'] - Pax) *
+        (rows[300]['Va_A3_at'] - rows[300]['Vg_A3_at']) / GPA_A3_PER_EV * 1000.0),
+        marker='D', ms=5, color='k', label='experiment (onset, 300 K)')
+ax.plot(EXP_P, 0.0, marker='D', ms=4, color='k', mfc='none')
+ax.set_xlim(0, 2.6); ax.set_ylim(-9.0, 7.4)
+ax.set_xlabel('$P$ (GPa)'); ax.set_ylabel(r'$G_\gamma - G_\alpha$ (meV/atom)')
+ax.legend(frameon=False, loc='lower left', ncol=2, columnspacing=0.8, handlelength=1.2)
+ax.set_title('(a)', loc='left', fontsize=8, fontweight='bold')
 
-# 0 K with the zero-point term removed
-s0 = (rows[0]['Va'] - rows[0]['Vg']) / 160.2177 * 1000.0
-Pt_nz = rows[0]['Pt'] - 0.984 * k
-ax.plot(P, s0 * (Pt_nz - P), '--', color=C_ZPE, lw=1.1, label=r'$0$ K, no ZPE')
-ax.plot(Pt_nz, 0.0, 's', ms=3.3, mfc='white', mec=C_ZPE, mew=0.9, zorder=5)
-ax.annotate('', xy=(rows[0]['Pt'], 2.35), xytext=(Pt_nz, 2.35),
-            arrowprops=dict(arrowstyle='<->', color=C_ZPE, lw=0.8))
-ax.text(0.5 * (rows[0]['Pt'] + Pt_nz), 3.05, r'$+0.176$ GPa', ha='center',
-        fontsize=6.9, color=C_ZPE)
-# experimental onset at 300 K
-ax.plot(0.210, 0.0, 'D', ms=3.6, color=C_EXP, zorder=6)
-ax.annotate('experiment\n(onset, 300 K)', xy=(0.235, -0.3), xytext=(0.07, -6.0),
-            fontsize=6.4, color=C_EXP, ha='left', va='top',
-            arrowprops=dict(arrowstyle='-', color=C_EXP, lw=0.6, shrinkA=1, shrinkB=2))
-ax.annotate(r'$P_t$ (0 K)', xy=(0.53, 0.1), xytext=(0.80, 1.30), fontsize=6.5, color='#333333',
-            arrowprops=dict(arrowstyle='-', color='#333333', lw=0.6, shrinkA=0, shrinkB=1))
-ax.text(0.03, 0.03, r'$P_t = 0.51,\ 0.61,\ 0.91,\ 1.37,\ 1.78$ GPa' + '\n' + r'for $T = 0$-$400$ K',
-        transform=ax.transAxes, fontsize=6.2, color='#666666', va='bottom')
-ax.axhline(0, color='#aaaaaa', lw=0.6, zorder=0)
-ax.set_xlabel(r'$P$ (GPa)')
-ax.set_ylabel(r'$G_\gamma - G_\alpha$ (meV/atom)')
-ax.set_xlim(0, 2.6); ax.set_ylim(-14.5, 12.5)
-ax.set_yticks([-10, -5, 0, 5, 10])
-ax.legend(frameon=False, loc='upper right', handletextpad=0.4, labelspacing=0.22,
-          borderpad=0.15, ncol=2, columnspacing=0.8)
-ax.text(0.02, 0.97, '(a)', transform=ax.transAxes, va='top', fontsize=9, fontweight='bold')
+# ------------------------------------------------ (b) 300 K ledger, energy units only
+ax = fig.add_subplot(gs[0, 1])
+labels = ['PBE\nstatic', 'MLIP\nresidual', 'ZPE', 'volume\nclosure',
+          r'$-T\Delta S$' + '\n(300 K)']
+incs = [PBE_REF, dEst - PBE_REF, dZPE, closure, dS_term]
+cols = ['#D55E00', '#0072B2', '#009E73', '0.55', '#332288']
+base = np.concatenate([[0.0], np.cumsum(incs)[:-1]])     # each bar starts where the last ended
+tops = np.cumsum(incs)
+ax.bar(range(5), incs, bottom=base, width=0.55, color=cols, edgecolor='k', lw=0.5)
+for i in range(4):                                        # waterfall connectors
+    ax.plot([i + 0.275, i + 1 - 0.275], [tops[i], tops[i]], ls=':', color='0.45', lw=0.7)
+for i, (b0, h) in enumerate(zip(base, incs)):
+    ax.text(i, b0 + h + 0.14, '%.3f' % tops[i], ha='center', va='bottom', fontsize=5.8)
+ax.axhline(EXP_E, ls='--', color='0.35', lw=0.8)
+ax.text(3.62, EXP_E + 0.18, 'experiment, $\\leq 1.197$', fontsize=5.8, color='0.3',
+        ha='right', va='bottom')
+ax.annotate('', xy=(4.62, dG_300K), xytext=(4.62, EXP_E),
+            arrowprops=dict(arrowstyle='<->', lw=0.7, color='0.3'))
+ax.text(4.43, 0.5 * (dG_300K + EXP_E), 'discrepancy  $\\geq 6.024$', rotation=90,
+        ha='center', va='center', fontsize=5.8, color='0.3',
+        bbox=dict(facecolor='w', edgecolor='none', pad=0.6))
+ax.set_xticks(range(5)); ax.set_xticklabels(labels, fontsize=5.9)
+ax.set_xlim(-0.55, 4.85)
+ax.set_ylabel('computed driving force (meV/atom)'); ax.set_ylim(0, 9.0)
+ax.set_title('(b)', loc='left', fontsize=8, fontweight='bold')
 
-# ------------------------------------------------------------------ (b)
-ax2 = fig.add_subplot(gs[0, 1])
-steps = [(r'experiment' + '\n' + r'(onset)', 1.173, C_EXP),
-         (r'PBE' + '\n' + r'$\delta_{\rm DFT}$', 6.257, C_PBE),
-         (r'label shift' + '\n' + r'$\Delta E_{\rm shift}$', -4.891, C_LBL),
-         (r'MLIP' + '\n' + r'$\delta_{\rm MLIP}$', -0.616, C_RES),
-         (r'zero-point' + '\n' + r'$\Delta$ZPE', 0.984, C_ZPE)]
-cum = 1.173
-for i, (name, d, col) in enumerate(steps):
-    if i == 0:
-        ax2.bar(i, cum * k, width=0.62, color=col, edgecolor='k', linewidth=0.5)
-        ax2.text(i, cum * k + 0.03, r'$0.210$', ha='center', fontsize=6.5)
-        continue
-    bottom, top = cum * k, (cum + d) * k
-    ax2.bar(i, abs(top - bottom), bottom=min(bottom, top), width=0.62,
-            color=col, edgecolor='k', linewidth=0.5)
-    ax2.plot([i - 0.31, i + 0.31], [bottom, bottom], color='k', lw=0.5, ls=':')
-    ax2.text(i, max(bottom, top) + 0.035, r'$%+.3f$' % (d * k), ha='center', fontsize=6.5)
-    ax2.text(i, 0.045, r'$%+.3f$' % d, ha='center', fontsize=6.0, color='#444444')
-    cum += d
-ax2.bar(len(steps), cum * k, width=0.62, color='#777777', edgecolor='k', linewidth=0.5)
-ax2.text(len(steps), cum * k + 0.035, r'$%.3f$' % (cum * k), ha='center', fontsize=6.5)
-ax2.set_xticks(list(range(len(steps))) + [len(steps)])
-ax2.set_xticklabels([s[0] for s in steps] + [r'this work' + '\n' + r'(V6)'],
-                    fontsize=6.6, rotation=18, ha='right')
-ax2.set_ylabel(r'$P_t$ (GPa)')
-ax2.set_ylim(0, 1.66); ax2.set_xlim(-0.6, 5.6)
-ax2.axhline(0.210, color=C_EXP, lw=0.6, ls='--')
-ax2.text(5.45, 0.245, 'experiment', fontsize=6.3, color=C_EXP, ha='right')
-ax2.text(0.02, 0.97, '(b)', transform=ax2.transAxes, va='top', fontsize=9, fontweight='bold')
-ax2.text(0.99, 0.965, r'$89\,\%$ data engineering' + '\n' + r'$11\,\%$ model residual',
-         transform=ax2.transAxes, ha='right', va='top', fontsize=6.8, color='#333333')
-ax2.text(0.015, 0.895, r'upper: GPa' + '\n' + r'lower: meV atom$^{-1}$', transform=ax2.transAxes,
-         ha='left', va='top', fontsize=5.8, color='#666666', linespacing=1.3)
 fig.savefig(os.path.join(OUT, 'fig5.pdf'))
-fig.savefig(os.path.join(OUT, 'fig5.png'), dpi=300)
-print('fig5: ledger closes at %.3f GPa (full QHA 0.509); no-ZPE P_t=%.3f' % (cum * k, Pt_nz))
-for T in Tsel:
-    r = rows[T]; s = (r['Va'] - r['Vg']) / 160.2177 * 1000.0
-    print('   T=%3d  dV=%.4f  slope=%.3f meV/GPa  dG(0)=%.2f meV  Pt=%.3f' %
-          (T, r['Va'] - r['Vg'], s, s * r['Pt'], r['Pt']))
+print('fig5.pdf written')
+print('C               = %.6f' % C)
+print('exp anchor      = %.5f meV/atom (0.210 GPa / C)' % EXP_E)
+print('PBE increment   = %.5f' % (PBE_REF - EXP_E))
+print('MLIP residual   = %.5f' % (dEst - PBE_REF))
+print('dZPE            = %.5f' % dZPE)
+print('dG(0 K)         = %.5f' % dG_0K)
+print('closure         = %.5f' % closure)
+print('dG(300 K)       = %.5f' % dG_300K)
+print('-TdS(300 K)     = %.5f' % dS_term)
+print('sum of rows     = %.5f  (diff to dG300 = %.6f)'
+      % (EXP_E + (PBE_REF - EXP_E) + (dEst - PBE_REF) + dZPE + closure + dS_term,
+         EXP_E + (PBE_REF - EXP_E) + (dEst - PBE_REF) + dZPE + closure + dS_term - dG_300K))
+print('ratio dG300/Pt300 = %.4f GPa/(meV/atom)' % (dG_300K / rows[300]['Pt_GPa']))

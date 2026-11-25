@@ -1,0 +1,354 @@
+{
+ "rows": [
+  {
+   "T": 0.0,
+   "Pt_GPa": 0.6345238602177006,
+   "Va_A3_at": 18.092187526727276,
+   "Vg_A3_at": 17.19960875096971,
+   "dG_P0_eV_at": 0.0036033872795542266,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 25.0,
+   "Pt_GPa": 0.6389676410612039,
+   "Va_A3_at": 18.09122535545455,
+   "Vg_A3_at": 17.19960875096971,
+   "dG_P0_eV_at": 0.0036237267545402574,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 50.0,
+   "Pt_GPa": 0.665005418734065,
+   "Va_A3_at": 18.085933413454548,
+   "Vg_A3_at": 17.199951673227282,
+   "dG_P0_eV_at": 0.0037508211030399252,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 75.0,
+   "Pt_GPa": 0.7092736006143882,
+   "Va_A3_at": 18.079198214545457,
+   "Vg_A3_at": 17.201323362257586,
+   "dG_P0_eV_at": 0.0039686599718606885,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 100.0,
+   "Pt_GPa": 0.7659592963767864,
+   "Va_A3_at": 18.07150084436364,
+   "Vg_A3_at": 17.203380895803043,
+   "dG_P0_eV_at": 0.004243843100084632,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 125.0,
+   "Pt_GPa": 0.8322803852083509,
+   "Va_A3_at": 18.062841302909096,
+   "Vg_A3_at": 17.206124273863647,
+   "dG_P0_eV_at": 0.0045579256939163315,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 150.0,
+   "Pt_GPa": 0.9070495279075117,
+   "Va_A3_at": 18.05418176145455,
+   "Vg_A3_at": 17.209210574181828,
+   "dG_P0_eV_at": 0.0048997377289197175,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 175.0,
+   "Pt_GPa": 0.9901502284120421,
+   "Va_A3_at": 18.04504113436364,
+   "Vg_A3_at": 17.21332564127274,
+   "dG_P0_eV_at": 0.005261536041416548,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 200.0,
+   "Pt_GPa": 1.0827899755106054,
+   "Va_A3_at": 18.035419421636366,
+   "Vg_A3_at": 17.217783630621224,
+   "dG_P0_eV_at": 0.005637708836957245,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 225.0,
+   "Pt_GPa": 1.188883942175872,
+   "Va_A3_at": 18.025797708909096,
+   "Vg_A3_at": 17.22292746448486,
+   "dG_P0_eV_at": 0.0060241948519887956,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 250.0,
+   "Pt_GPa": 1.3027727043943886,
+   "Va_A3_at": 18.015213824909093,
+   "Vg_A3_at": 17.228757142863646,
+   "dG_P0_eV_at": 0.006418104794420287,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 275.0,
+   "Pt_GPa": 1.4132633943845736,
+   "Va_A3_at": 18.004629940909094,
+   "Vg_A3_at": 17.235272665757588,
+   "dG_P0_eV_at": 0.006817413183625831,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 300.0,
+   "Pt_GPa": 1.5203749771025734,
+   "Va_A3_at": 17.993083885636366,
+   "Vg_A3_at": 17.242816955424253,
+   "dG_P0_eV_at": 0.007220732890573345,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 325.0,
+   "Pt_GPa": 1.6242030399018683,
+   "Va_A3_at": 17.981056744727276,
+   "Vg_A3_at": 17.250704167348495,
+   "dG_P0_eV_at": 0.007627155990803658,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 350.0,
+   "Pt_GPa": 1.724856776332366,
+   "Va_A3_at": 17.968067432545457,
+   "Vg_A3_at": 17.25996306830304,
+   "dG_P0_eV_at": 0.008036134880512691,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 375.0,
+   "Pt_GPa": 1.8224513890620055,
+   "Va_A3_at": 17.953153777818184,
+   "Vg_A3_at": 17.270250736030313,
+   "dG_P0_eV_at": 0.008447427046803568,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 400.0,
+   "Pt_GPa": 1.9171071826885597,
+   "Va_A3_at": 17.936315780545456,
+   "Vg_A3_at": 17.282253015045466,
+   "dG_P0_eV_at": 0.008861077696792563,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 425.0,
+   "Pt_GPa": 2.0089411250735862,
+   "Va_A3_at": 17.916110183818184,
+   "Vg_A3_at": 17.295969905348496,
+   "dG_P0_eV_at": 0.009277495460310092,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 450.0,
+   "Pt_GPa": 2.0980626395404744,
+   "Va_A3_at": 17.89061264509091,
+   "Vg_A3_at": 17.312773095969707,
+   "dG_P0_eV_at": 0.009697717468498013,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 475.0,
+   "Pt_GPa": 2.1845707999497153,
+   "Va_A3_at": 17.851644708545457,
+   "Vg_A3_at": 17.33369135368183,
+   "dG_P0_eV_at": 0.01012447487278223,
+   "edge_alpha": false,
+   "edge_gamma": false
+  },
+  {
+   "T": 500.0,
+   "Pt_GPa": 2.2685534898039994,
+   "Va_A3_at": 17.67989713636364,
+   "Vg_A3_at": 17.36352559009092,
+   "dG_P0_eV_at": 0.010597858097753488,
+   "edge_alpha": true,
+   "edge_gamma": false
+  },
+  {
+   "T": 525.0,
+   "Pt_GPa": 2.35008712135861,
+   "Va_A3_at": 17.67989713636364,
+   "Vg_A3_at": 17.426280363227285,
+   "dG_P0_eV_at": 0.011108277709809045,
+   "edge_alpha": true,
+   "edge_gamma": false
+  },
+  {
+   "T": 550.0,
+   "Pt_GPa": 2.4292367085796664,
+   "Va_A3_at": 17.67989713636364,
+   "Vg_A3_at": 17.489035136363647,
+   "dG_P0_eV_at": 0.011588606215354957,
+   "edge_alpha": true,
+   "edge_gamma": true
+  },
+  {
+   "T": 575.0,
+   "Pt_GPa": 2.506056082494351,
+   "Va_A3_at": 17.67989713636364,
+   "Vg_A3_at": 17.489035136363647,
+   "dG_P0_eV_at": 0.012066150171676782,
+   "edge_alpha": true,
+   "edge_gamma": true
+  },
+  {
+   "T": 600.0,
+   "Pt_GPa": 2.5805882555559294,
+   "Va_A3_at": 17.67989713636364,
+   "Vg_A3_at": 17.489035136363647,
+   "dG_P0_eV_at": 0.012542389071995785,
+   "edge_alpha": true,
+   "edge_gamma": true
+  }
+ ],
+ "T": [
+  0.0,
+  25.0,
+  50.0,
+  75.0,
+  100.0,
+  125.0,
+  150.0,
+  175.0,
+  200.0,
+  225.0,
+  250.0,
+  275.0,
+  300.0,
+  325.0,
+  350.0,
+  375.0,
+  400.0,
+  425.0,
+  450.0,
+  475.0,
+  500.0,
+  525.0,
+  550.0,
+  575.0,
+  600.0
+ ],
+ "model": "/home/jinshuaishuai/workdir_tyut-youzhiyong/jinshuaishuai/cluster_v11/ZrW_v11_seed3_stagetwo.model",
+ "method": "G(V,T,P)=E_st(V)+F_vib(V,T)+P*V ; cubic spline in V per T ; P*V in eV via 1e-21/1.602176634e-19",
+ "Pt0K_GPa": 0.6345238602177006,
+ "Tc_at_P0_K": null,
+ "Tc_note": "ΔG(γ−α) 在 P=0、0–600 K 全为正（+3.60 → +12.54 meV/atom），无过零：常压全温区 α 稳定，γ 只在加压下稳定（`pt_line.json:rows[*].Pt_GPa`）",
+ "Pt_valid_T_max_K": 475.0,
+ "Pt_validity_note": "样条最小值撞到 V 数据边界(edge_*)后 V(T) 被夹住，P_t 在该温度以上不可信；本表在 T ≤ 475 K 内有效",
+ "consistency": {
+  "dEst_meV_at": 2.706416518549304,
+  "dZPE_meV_at": 0.7906994396135332,
+  "sum_meV_at": 3.497115958162837,
+  "coef": 0.1791,
+  "coef_src": "ref_audit/abacus_runs/RESULTS.md + abacus_results.json",
+  "Pt_estimate_GPa": 0.6263334681069641,
+  "diff_GPa": 0.008190392110736466,
+  "ok": true,
+  "coef_variants": {
+   "dft_dV_0.8946": {
+    "dV_A3_per_atom": 0.8946,
+    "coef_GPa_per_meV_atom": 0.1790941896713615,
+    "src": "DFT 真弛豫体积差 dV/atom = 0.8946 Å³ -> C = 0.1791 GPa/(meV/atom)（论文旧值）",
+    "dZPE_meV_at": 0.7906994396135332,
+    "sum_meV_at": 3.497115958162837,
+    "Pt_estimate_GPa": 0.6263131487139603,
+    "diff_GPa": 0.008210711503740309,
+    "ok": true
+   },
+   "v11_fit_dV": {
+    "dV_A3_per_atom": 0.9130835384227467,
+    "coef_GPa_per_meV_atom": 0.17546878827402662,
+    "src": "V11 本次 BM 拟合 V0 差 dV/atom -> C ≈ 0.1755 GPa/(meV/atom)（主表口径）",
+    "dZPE_meV_at": 0.7906994396135332,
+    "sum_meV_at": 3.497115958162837,
+    "Pt_estimate_GPa": 0.6136346996325946,
+    "diff_GPa": 0.020889160585105926,
+    "ok": true
+   }
+  },
+  "preliminary": {
+   "dZPE_meV_at": 0.7912650771802845,
+   "sum_meV_at": 3.4976815957295884,
+   "Pt_estimate_GPa": 0.6264347737951693,
+   "coef_variants": {
+    "dft_dV_0.8946": {
+     "dV_A3_per_atom": 0.8946,
+     "coef_GPa_per_meV_atom": 0.1790941896713615,
+     "src": "DFT 真弛豫体积差 dV/atom = 0.8946 Å³ -> C = 0.1791 GPa/(meV/atom)（论文旧值）",
+     "Pt_estimate_GPa": 0.6264144511156253,
+     "diff_GPa": 0.008109409102075249,
+     "ok": true
+    },
+    "v11_fit_dV": {
+     "dV_A3_per_atom": 0.9130835384227467,
+     "coef_GPa_per_meV_atom": 0.17546878827402662,
+     "src": "V11 本次 BM 拟合 V0 差 dV/atom -> C ≈ 0.1755 GPa/(meV/atom)（主表口径）",
+     "Pt_estimate_GPa": 0.6137339513710347,
+     "diff_GPa": 0.020789908846665872,
+     "ok": true
+    }
+   }
+  },
+  "dZPE_source": "zpe_mesh_check.json：同网格同体积点收敛重算（α 32³ / γ 24³），原值见 consistency.preliminary"
+ },
+ "excluded_imag": {
+  "alpha": [
+   "vol_0.9400",
+   "vol_0.9500",
+   "vol_0.9600",
+   "vol_0.9700"
+  ],
+  "gamma": [
+   "vol_0.9400",
+   "vol_0.9500",
+   "vol_1.0300"
+  ]
+ },
+ "used_tags": {
+  "alpha": [
+   "vol_0.9800",
+   "vol_0.9900",
+   "vol_1.0000",
+   "vol_1.0100",
+   "vol_1.0200",
+   "vol_1.0300",
+   "vol_1.0400",
+   "vol_1.0500",
+   "vol_1.0600"
+  ],
+  "gamma": [
+   "vol_0.9600",
+   "vol_0.9700",
+   "vol_0.9800",
+   "vol_0.9900",
+   "vol_1.0000",
+   "vol_1.0100",
+   "vol_1.0200"
+  ]
+ }
+}

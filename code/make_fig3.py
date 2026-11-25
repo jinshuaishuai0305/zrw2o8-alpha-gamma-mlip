@@ -1,103 +1,90 @@
 #!/usr/bin/env python3
-"""Fig. 3 - Phonon DOS and the band-resolved zero-point energy mechanism."""
+"""Fig. 3 - origin of the zero-point difference, V11 data.
+
+Data source: deposit/data/json/zpe_phdos.json
+  phases.{alpha,gamma}.phdos_representative.{grid,dos}   (both at V/V0 = 1.0000)
+  phases.{alpha,gamma}.bands_detail[tag=vol_1.0000].bands  (per-band ZPE)
+
+The band deltas are the arithmetic difference of the two phases' per-band ZPE values at
+the common sampling volume V/V0 = 1; they sum to +0.7626 meV/atom
+(zpe_mesh_check.json:delta.same_mesh_24_meV_at.value). The value used in the text
+(+0.7907) is at the respective Birch-Murnaghan volumes.
+"""
 import json, os
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-ROOT = '/home/jss/share/AlZrW2O8_MACE/diag_precision/json/'
-OUT = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.dirname(os.path.abspath(__file__))
+QHA = os.path.join(HERE, '..', 'data', 'json') + os.sep
+OUT = os.path.join(HERE, '..', 'figures')
+
 plt.rcParams.update({
     'font.family': 'serif', 'font.serif': ['Times New Roman', 'Nimbus Roman', 'DejaVu Serif'],
     'mathtext.fontset': 'stix', 'font.size': 8, 'axes.labelsize': 8,
-    'xtick.labelsize': 7.5, 'ytick.labelsize': 7.5, 'legend.fontsize': 7.0,
+    'xtick.labelsize': 7.5, 'ytick.labelsize': 7.5, 'legend.fontsize': 7,
     'axes.linewidth': 0.7, 'xtick.major.width': 0.7, 'ytick.major.width': 0.7,
     'xtick.major.size': 3, 'ytick.major.size': 3, 'lines.linewidth': 1.1,
     'axes.spines.top': False, 'axes.spines.right': False,
 })
-C_A = '#0072B2'; C_G = '#D55E00'; C_POS = '#009E73'; C_NEG = '#CC79A7'
-THz2meV = 4.135667
-ph = json.load(open(ROOT + 'phdos_zpe.json'))
-a, g = ph['alpha'], ph['gamma']
-fg = np.array(a['dos_grid'])
-da = np.array(a['dos']); dg = np.array(g['dos'])      # both integrate to 3 states/THz/atom
-df = fg[1] - fg[0]
+C_A, C_G = '#0072B2', '#D55E00'
 
-fig = plt.figure(figsize=(7.2, 2.35))
-gs = fig.add_gridspec(1, 3, width_ratios=[1.22, 1.0, 1.0], wspace=0.36,
-                      left=0.068, right=0.985, top=0.90, bottom=0.22)
+d = json.load(open(QHA + 'zpe_phdos.json'))
 
-# ---- (a) PHDOS
+def phdos(phase):
+    r = d['phases'][phase]['phdos_representative']
+    return np.array(r['grid'], float), np.array(r['dos'], float)
+
+def bands(phase):
+    for e in d['phases'][phase]['bands_detail']:
+        if e['tag'] == 'vol_1.0000':
+            return e['bands']
+    raise KeyError(phase)
+
+ba, bg = bands('alpha'), bands('gamma')
+# tick labels must not carry the LaTeX-style '--' (matplotlib prints it verbatim)
+groups = [('$0$–$4$', [0, 1, 2]), ('$4$–$16$', [3, 4]), ('$>16$', [5])]
+dz = np.array([sum(bg[i]['zpe'] - ba[i]['zpe'] for i in idx) for _, idx in groups])
+fr_a = np.array([sum(ba[i]['frac'] for i in idx) for _, idx in groups]) * 100
+fr_g = np.array([sum(bg[i]['frac'] for i in idx) for _, idx in groups]) * 100
+tot = dz.sum()
+share = dz / tot * 100
+
+fig = plt.figure(figsize=(7.2, 2.6))
+gs = fig.add_gridspec(1, 3, wspace=0.34, left=0.062, right=0.988, top=0.92, bottom=0.235,
+                      width_ratios=[1.25, 0.85, 0.85])
+
 ax = fig.add_subplot(gs[0, 0])
-for x in (4, 8, 16):
-    ax.axvline(x, color='#c8c8c8', lw=0.6, ls=':')
-def smooth(y, sig=0.25):
-    n = int(4 * sig / df) | 1
-    x = (np.arange(n) - n // 2) * df
-    w = np.exp(-0.5 * (x / sig) ** 2); w /= w.sum()
-    return np.convolve(y, w, mode='same')
-da_s, dg_s = smooth(da), smooth(dg)
-ax.fill_between(fg, 0, dg_s, color=C_G, alpha=0.14, lw=0, zorder=1)
-ax.fill_between(fg, 0, da_s, color=C_A, alpha=0.14, lw=0, zorder=1)
-ax.plot(fg, dg_s, '-', color=C_G, lw=0.9, label=r'$\gamma$', zorder=3)
-ax.plot(fg, da_s, '-', color=C_A, lw=0.9, label=r'$\alpha$', zorder=4)
-ax.set_xlim(0, 32); ax.set_ylim(0, 0.66)
-ax.set_xlabel(r'Frequency (THz)'); ax.set_ylabel(r'PHDOS (states THz$^{-1}$ atom$^{-1}$)')
-ax.legend(frameon=False, loc='upper right', handletextpad=0.4, labelspacing=0.2,
-          borderpad=0.1)
-ax.text(0.03, 0.96, '(a)', transform=ax.transAxes, va='top', fontsize=9, fontweight='bold')
+for phase, c, lab in (('alpha', C_A, r'$\alpha$'), ('gamma', C_G, r'$\gamma$')):
+    g, dos = phdos(phase)
+    ax.plot(g, dos, color=c, lw=1.0, label=lab)
+ax.set_xlim(0, 32); ax.set_ylim(0, 0.68)
+ax.set_xlabel('frequency (THz)'); ax.set_ylabel('PHDOS (states/THz/atom)')
+ax.legend(frameon=False, loc='upper right')
+ax.set_title('(a)', loc='left', fontsize=8, fontweight='bold')
 
-# ---- (b) band-resolved Delta ZPE
-ax2 = fig.add_subplot(gs[0, 1])
-bands = [(r'0-4', 0.0, 4.0), (r'4-8', 4.0, 8.0), (r'8-16', 8.0, 16.0), (r'$>$16', 16.0, 40.0)]
-def band_zpe(d, lo, hi):
-    s = 0.0
-    for b in d['bands']:
-        bh = 40.0 if b['hi'] is None else b['hi']
-        ov = max(0.0, min(bh, hi) - max(b['lo'], lo))
-        s += b['zpe'] * ov / (bh - b['lo'])
-    return s
-vals = [band_zpe(g, lo, hi) - band_zpe(a, lo, hi) for _, lo, hi in bands]
-tot = sum(vals)
-for i, v in enumerate(vals):
-    ax2.bar(i, v, width=0.6, color=(C_POS if v > 0 else C_NEG), edgecolor='k', linewidth=0.5)
-    ax2.text(i, v + (0.08 if v > 0 else -0.10), r'$%+.2f$' % v, ha='center', fontsize=6.5,
-             va='bottom' if v > 0 else 'top')
-ax2.axhline(0, color='#888888', lw=0.6)
-ax2.axhline(tot, color='#333333', lw=0.7, ls='--')
-ax2.text(3.45, tot + 0.07, r'net $+0.99$', fontsize=6.4, ha='right', color='#333333')
-ax2.set_xticks(range(len(bands))); ax2.set_xticklabels([b[0] for b in bands], fontsize=7)
-ax2.set_xlabel(r'Frequency band (THz)'); ax2.set_ylabel(r'$\Delta$ZPE (meV/atom)')
-ax2.set_ylim(-1.55, 2.05)
-ax2.text(0.03, 0.96, '(b)', transform=ax2.transAxes, va='top', fontsize=9, fontweight='bold')
+ax = fig.add_subplot(gs[0, 1])
+x = np.arange(3)
+ax.bar(x, dz, width=0.62, color=['#4477AA', '#CC6677', '#88CCEE'], edgecolor='k', lw=0.5)
+ax.axhline(0, color='k', lw=0.7)
+for i, v in enumerate(dz):
+    ax.text(i, v + (0.09 if v > 0 else -0.20), '%+.3f' % v, ha='center', fontsize=6.6)
+ax.set_xticks(x); ax.set_xticklabels([g[0] for g in groups])
+ax.set_xlabel('band (THz)'); ax.set_ylabel(r'$\Delta$ZPE (meV/atom)')
+ax.set_ylim(-1.55, 2.75)
+ax.set_title('(b)', loc='left', fontsize=8, fontweight='bold')
 
-# ---- (c) cumulative Delta ZPE
-ax3 = fig.add_subplot(gs[0, 2])
-# staircase built from the archived band table (1 THz bins below 2 THz)
-bins = [(0.0, 1.0), (1.0, 2.0), (2.0, 4.0), (4.0, 8.0), (8.0, 16.0), (16.0, 40.0)]
-xs, ys = [0.0], [0.0]
-run = 0.0
-for lo, hi in bins:
-    run += band_zpe(g, lo, hi) - band_zpe(a, lo, hi)
-    xs += [lo, hi]; ys += [run, run]
-ax3.plot(xs, ys, '-', color='#333333', lw=1.2)
-ax3.plot(xs[1:], ys[1:], '.', ms=2.2, color='#333333')
-for x in (4, 8, 16):
-    ax3.axvline(x, color='#c8c8c8', lw=0.6, ls=':')
-ax3.axhline(0, color='#bbbbbb', lw=0.6)
-ax3.annotate(r'$+0.99$', xy=(28.0, run), xytext=(17.5, 1.35),
-             fontsize=6.8, arrowprops=dict(arrowstyle='-', lw=0.6, color='#333333'))
-ax3.annotate(r'$-0.35$', xy=(4.0, ys[xs.index(4.0) + 1]), xytext=(0.6, -1.6),
-             fontsize=6.8, arrowprops=dict(arrowstyle='-', lw=0.6, color='#333333'))
-ax3.set_xlim(0, 32); ax3.set_ylim(-2.2, 2.4)
-ax3.set_xlabel(r'Frequency (THz)'); ax3.set_ylabel(r'cumulative $\Delta$ZPE (meV/atom)')
-ax3.text(0.03, 0.96, '(c)', transform=ax3.transAxes, va='top', fontsize=9, fontweight='bold')
-ax3.text(0.98, 0.05, r'soft modes $<$2 THz:' + '\n' + r'$\alpha$ 8.7 %, $\gamma$ 6.3 %',
-         transform=ax3.transAxes, ha='right', va='bottom', fontsize=6.2, color='#555555')
+ax = fig.add_subplot(gs[0, 2])
+cum = np.concatenate([[0.0], np.cumsum(dz)])
+ax.plot(np.arange(4), cum, 'o-', ms=3.5, color='#332288', lw=1.1)
+ax.axhline(tot, color='0.5', ls='--', lw=0.7)
+ax.text(0.06, tot + 0.13, r'net $= +%.3f$' % tot, fontsize=6.8, color='0.3')
+ax.set_xticks(range(4)); ax.set_xticklabels(['start'] + [g[0] for g in groups])
+ax.set_xlabel('band (THz)'); ax.set_ylabel('cumulative (meV/atom)')
+ax.set_ylim(-1.7, 2.75)
+ax.set_title('(c)', loc='left', fontsize=8, fontweight='bold')
 
 fig.savefig(os.path.join(OUT, 'fig3.pdf'))
-fig.savefig(os.path.join(OUT, 'fig3.png'), dpi=300)
-print('fig3 bands', ['%+.3f' % v for v in vals], 'total %+.4f' % tot)
-print('     staircase end %+.4f (archive net %+.4f)' % (run, g['zpe_total'] - a['zpe_total']))
-print('     mean freq alpha %.3f gamma %.3f THz' % (np.sum(fg*da)/np.sum(da), np.sum(fg*dg)/np.sum(dg)))
+print('fig3.pdf written; dZPE bands =', np.round(dz, 4), 'sum', round(tot, 4),
+      'shares', np.round(share, 0), 'frac alpha', np.round(fr_a, 2), 'gamma', np.round(fr_g, 2))
